@@ -1,0 +1,130 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Open Sans", sans-serif;
+}
+
+body {
+  background-color: grey;
+}
+
+#menu_logo {
+  display: flex;
+  width: 300px;
+  height: 125px;
+  background-image: url("/images/projekt-plus-logo.jpg");
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  justify-items: flex-start;
+  position: fixed;
+  width: 300px;
+  height: 100vh;
+  background: #FFF;
+  font-size: 0.65em;
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
+}
+
+.nav {
+  margin: 0 10%;
+  text-align: right;
+  top: 50%;
+  font-weight: bold;
+}
+
+.nav ul {
+  list-style: none;
+}
+.nav ul li {
+  position: relative;
+  margin: 3.2em 0;
+}
+.nav ul li a {
+  line-height: 3em;
+  text-decoration: none;
+  display: block;
+  transition: all ease-out 300ms;
+  color: black;
+}
+.nav ul li a h3 {
+  font-size: 2em;
+  font-weight: normal;
+}
+.nav ul li a p {
+  color: grey;
+}
+.nav ul li.active a h3 {
+  color: #7094d6;
+}
+.nav ul li:not(.active):hover a {
+  color: rgba(112, 148, 214, 0.75);
+}
+.nav ul li::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 3px;
+  left: 0;
+  bottom: 0;
+  background-image: linear-gradient(to right, white, #7094d6);
+}
+
+.content {
+  position: relative;
+  width: calc(100vw - 300px);
+  float: right;
+  height: 100vh;
+}
+.content .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+.content a {
+  position: relative;
+}
+.content a img {
+  width: 48px;
+  height: 48px;
+}
+.content p {
+  text-transform: uppercase;
+  font-size: 1em;
+  letter-spacing: 0.1em;
+  color: #FFF;
+  font-weight: bold;
+  margin-top: 20px;
+}
+
+.social_link {
+  display: flex;
+  margin-top: auto;
+  height: 40px;
+  border-top: 1px solid lightgrey;
+  text-decoration: none;
+  color: #7094d6;
+  transition: 0.3s;
+  font-size: 1.5em;
+  justify-content: center;
+  align-items: center;
+}
+.social_link:hover {
+  background-color: #7094d6;
+  color: white;
+}
+.social_link:hover.fa {
+  color: white;
+}
+.social_link.fa {
+  transition: 0.3s;
+}
+
+/*# sourceMappingURL=styles.css.map */

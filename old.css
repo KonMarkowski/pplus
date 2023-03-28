@@ -1,0 +1,86 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Open Sans', sans-serif;
+}
+
+body {
+  background-color: grey;
+}
+
+#menu_logo {
+  display: block;
+  width: 300px;
+  height: 125px;
+  margin: auto;
+  background-image: url("/images/projekt-plus-logo.png");
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.menu_container {
+  background-color: white;
+  display: block;
+  width: 300px;
+  height: 100vh
+}
+.menu_list {
+  display: flex;
+  flex-direction: column;
+  padding: 30px;
+}
+
+.menu_list_item {
+  display: block;
+  border-bottom: 1px solid lightgrey;
+  padding: 10px;
+}
+
+.menu_list h3 {
+  transition: 0.3s;
+  font-weight: normal;
+}
+
+.menu_list p {
+  color: grey;
+  display: block;
+  font-size: 0.8rem;
+}
+
+.menu_list_item:hover h3{
+  color: #7094d6;
+}
+
+.menu_link {
+  color: inherit;
+  text-decoration: none;
+}
+
+.menu_list_item:last-child {
+  border-bottom: none;
+}
+
+.menu_social_link {
+  display: flex;
+  height: 50px;
+  border-top: 1px solid lightgrey;
+  border-bottom: 1px solid lightgrey;
+  text-decoration: none;
+  color: #7094d6;
+  transition: 0.3s;
+}
+
+.menu_social_link:hover {
+  background-color: #7094d6;
+  color: white
+}
+
+.menu_social_link:hover .fa {
+  color: white
+}
+
+.menu_social_link .fa {
+  margin: auto;
+  transition: 0.3s;
+}
