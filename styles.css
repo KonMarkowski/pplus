@@ -10,13 +10,10 @@ body {
 }
 
 #menu_logo {
-  display: flex;
   width: 300px;
   height: 125px;
-  background-image: url("/images/projekt-plus-logo.jpg");
-  background-size: contain;
-  background-position: center;
-  background-repeat: no-repeat;
+  object-fit: contain;
+  padding: 20px;
 }
 
 .sidebar {
