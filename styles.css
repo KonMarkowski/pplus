@@ -6,7 +6,7 @@
 }
 
 body {
-  background-color: grey;
+  background-color: white;
 }
 
 #menu_logo {
@@ -25,7 +25,7 @@ body {
   height: 100vh;
   background: #FFF;
   font-size: 0.65em;
-  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
 }
 
 .nav {
@@ -33,6 +33,7 @@ body {
   text-align: right;
   top: 50%;
   font-weight: bold;
+  z-index: 100;
 }
 
 .nav ul {
@@ -77,28 +78,7 @@ body {
   width: calc(100vw - 300px);
   float: right;
   height: 100vh;
-}
-.content .container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 100%;
-}
-.content a {
-  position: relative;
-}
-.content a img {
-  width: 48px;
-  height: 48px;
-}
-.content p {
-  text-transform: uppercase;
-  font-size: 1em;
-  letter-spacing: 0.1em;
-  color: #FFF;
-  font-weight: bold;
-  margin-top: 20px;
+  overflow: hidden;
 }
 
 .social_link {
@@ -122,6 +102,133 @@ body {
 }
 .social_link.fa {
   transition: 0.3s;
+}
+
+#slide {
+  width: 96%;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.mySlides {
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+}
+
+.slideshow-container {
+  width: auto;
+  position: relative;
+  margin: -10px;
+}
+
+/* Next & previous buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -22px;
+  color: #494B55;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  z-index: 4;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Caption text */
+.text {
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: center;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  cursor: pointer;
+  height: 13px;
+  width: 13px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.dots {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  bottom: 0;
+  left: 50%;
+  z-index: 4;
+}
+
+.active_slide {
+  z-index: 2;
+}
+
+.old_slide {
+  z-index: 1;
+}
+
+.active_slide, .dot:hover {
+  background-color: #494B55;
+}
+
+/* Fading animation */
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 2s;
+  animation-name: fade;
+  animation-duration: 2s;
+}
+
+@-webkit-keyframes fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+/* On smaller screens, decrease text size */
+@media only screen and (max-width: 300px) {
+  .text {
+    font-size: 11px;
+  }
+}
+.pics {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
 }
 
 /*# sourceMappingURL=styles.css.map */

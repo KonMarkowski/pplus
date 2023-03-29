@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
+<script src="slider.js"></script>
 
 <main class="main">
     <aside class="sidebar">
@@ -60,7 +61,26 @@
     </aside>
 
     <section class="content">
+        <div class="ss-container">
+            <div class="mySlides active_slide">
+                <img src="images/sample/img1.png" class="pics"/>
+            </div>
+            <div class="mySlides">
+                <img src="images/sample/img2.jpg" class="pics"/>
+            </div>
+            <div class="mySlides old_slide">
+                <img src="images/sample/img3.jpg" class="pics"/>
+            </div>
+            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+            <a class="next" onclick="plusSlides(1)">&#10095;</a>
+        </div>
 
+        <!--    Putting in the click dots   -->
+        <div style="text-align:center" class="dots">
+            <span class="dot active_slide" onclick="currentSlide(1)"></span>
+            <span class="dot" onclick="currentSlide(2)"></span>
+            <span class="dot" onclick="currentSlide(3)"></span>
+        </div>
     </section>
 </main>
 
