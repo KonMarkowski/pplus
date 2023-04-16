@@ -1,88 +1,98 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <!--
       Site created by Brian Design on youtube @ www.youtube.com/channel/UCsKsymTY_4BYR-wytLjex7A?view_as=subscriber
     -->
-    <meta charset="UTF-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>HTML CSS Website</title>
-    <link rel="stylesheet" href="styles.css"/>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-</head>
-<body>
-
-<main class="main">
-    <aside class="sidebar">
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+  </head>
+  <body>
+    <main class="main">
+      <aside class="navbar">
         <a href="#">
-            <img id="menu_logo" src="/images/projekt-plus-logo.jpg"/>
+          <img  id="menu_logo" src="/images/projekt-plus-logo.png" />
         </a>
         <nav class="nav">
-            <ul>
-                <li class="active">
-                    <a href="#" id="home" class="active">
-                        <h3>Home</h3>
-                        <p>Strona główna</p>
-                    </a>
-                </li>
-                <li>
-                    <a href="#" id="company">
-                        <h3>Company</h3>
-                        <p>O Firmie</p>
-                    </a>
-                </li>
-                <li>
-                    <a href="#" id="projects">
-                        <h3>Projects</h3>
-                        <p>Projekty</p>
-                    </a>
-                </li>
-                <li>
-                    <a href="#" id="team">
-                        <h3>Team</h3>
-                        <p>Zespół</p>
-                    </a>
-                </li>
-                <li>
-                    <a href="#" id="contact">
-                        <h3>Contact</h3>
-                        <p>Kontakt</p>
-                    </a>
-                </li>
-            </ul>
+          <ul>
+            <li class="navItem active">
+              <a href="#home">
+                <h3>Home</h3>
+                <h4>Strona główna</h4>
+              </a>
+            </li>
+            <li class="navItem">
+              <a href="#company">
+                <h3>Company</h3>
+                <p>O Firmie</p>
+              </a>
+            </li>
+            <li class="navItem">
+              <a href="#projects">
+                <h3>Projects</h3>
+                <h4>Projekty</h4>
+              </a>
+            </li>
+            <li class="navItem">
+              <a href="#team">
+                <h3>Team</h3>
+                <h4>Zespół</h4>
+              </a>
+            </li>
+            <li class="navItem">
+              <a href="#contact">
+                <h3>Contact</h3>
+                <h4>Kontakt</h4>
+              </a>
+            </li>
+          </ul>
         </nav>
-        <a class="social_link" href="#">
-            <i class="fa fa-linkedin"></i>
-        </a>
-    </aside>
+<!--        <a class="social_link" href="#">-->
+<!--          <i class="fa fa-linkedin"></i>-->
+<!--        </a>-->
+      </aside>
 
-    <section class="content">
+      <section class="sec slider" id="home">
         <div class="ss-container">
-            <div class="mySlides active_slide">
-                <img src="images/sample/img1.png" class="pics"/>
-            </div>
-            <div class="mySlides">
-                <img src="images/sample/img2.jpg" class="pics"/>
-            </div>
-            <div class="mySlides old_slide">
-                <img src="images/sample/img3.jpg" class="pics"/>
-            </div>
-            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-            <a class="next" onclick="plusSlides(1)">&#10095;</a>
+          <div class="mySlides active_slide">
+            <img src="images/sample/img1.png" class="pics" />
+          </div>
+          <div class="mySlides">
+            <img src="images/sample/img2.jpg" class="pics" />
+          </div>
+          <div class="mySlides old_slide">
+            <img src="images/sample/img3.jpg" class="pics" />
+          </div>
+          <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+          <a class="next" onclick="plusSlides(1)">&#10095;</a>
         </div>
 
         <!--    Putting in the click dots   -->
-        <div style="text-align:center" class="dots">
-            <span class="dot active_slide" onclick="currentSlide(1)"></span>
-            <span class="dot" onclick="currentSlide(2)"></span>
-            <span class="dot" onclick="currentSlide(3)"></span>
+        <div style="text-align: center" class="dots">
+          <span class="dot active_slide" onclick="currentSlide(1)"></span>
+          <span class="dot" onclick="currentSlide(2)"></span>
+          <span class="dot" onclick="currentSlide(3)"></span>
         </div>
-    </section>
-</main>
+      </section>
+      <section class="sec" style="background-color: yellow;" id="company"><h1>O firmie</h1></section>
+      <section class="sec" style="background-color: orange;" id="projects"><h1>Projekty</h1></section>
+      <section class="sec" style="background-color: orangered;" id="team"><h1>Zespół</h1></section>
+      <section class="sec" style="background-color: olive;" id="contact"><h1>Kontakt</h1></section>
+    </main>
 
-<script src="slider.js"></script>
-</body>
+    <script src="slider.js"></script>
+    <script src="active.js"></script>
+  </body>
 </html>

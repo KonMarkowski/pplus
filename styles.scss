@@ -1,5 +1,6 @@
-$maincolor: #7094d6;
-$sidebarwidth: 300px;
+$maincolor: #667BB4;
+$sidebarWidth: 300px;
+$navbarHeight: 100px;
 
 
 * {
@@ -11,88 +12,94 @@ $sidebarwidth: 300px;
 
 body {
   background-color: white;
+  padding: 0;
+  margin: 0;
+  overflow-x: hidden;
+  width: 100vw;
 }
 
 #menu_logo {
+  position: fixed;
+  left: 0;
+  top: 0;
   width: 300px;
   height: 125px;
   object-fit: contain;
   padding: 20px;
 }
 
-.sidebar {
-  display: flex;
-  flex-direction: column;
-  justify-items: flex-start;
+.navbar {
   position: fixed;
-  width: $sidebarwidth;
-  height: 100vh;
-  background: #FFF;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0) 100%);
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  justify-content: center;
+  width: 100%;
+  height: $navbarHeight;
   font-size: 0.65em;
-  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+  z-index: 100;
 }
 
 .nav {
   margin: 0 10%;
-  text-align: right;
+  display: flex;
+  align-content: center;
+  text-align: center;
   top: 50%;
   font-weight: bold;
   z-index: 100;
 }
 
+.sec {
+  height: 100vh;
+}
+
 .nav ul {
   list-style: none;
+  display: flex;
+  gap: 20px;
 
   li {
     position: relative;
-    margin: 3.2em 0;
+    margin: 2em 0;
+
+    &.active a {
+      background-color: $maincolor;
+    }
 
     a {
       line-height: 3em;
       text-decoration: none;
       display: block;
       transition: all ease-out 300ms;
-      color: black;
+      color: white;
+      padding: 5px 50px;
+      border-radius: 20px;
 
       h3 {
         font-size: 2em;
         font-weight: normal;
       }
-
-      p {
-        color: grey;
-      }
-    }
-
-    &.active a h3 {
-      color: $maincolor;
     }
 
     &:not(.active):hover a {
       color: rgba($maincolor, 0.75);
     }
 
-    &::after {
-      content: '';
-      position: absolute;
-      width: 100%;
-      height: 3px;
-      left: 0;
-      bottom: 0;
-      background-image: linear-gradient(to right, white, $maincolor);
-    }
-
   }
 }
 
-.content {
-  position: relative;
-  width: calc(100vw - $sidebarwidth);
-  float: right;
+.slider {
+  width: 100%;
   height: 100vh;
   overflow: hidden;
 }
-.social_link{
+
+.social_link {
   display: flex;
   margin-top: auto;
   height: 40px;
@@ -103,6 +110,7 @@ body {
   font-size: 1.5em;
   justify-content: center;
   align-items: center;
+
   &:hover {
     background-color: $maincolor;
     color: white;
@@ -119,14 +127,6 @@ body {
 
 // slider
 
-#slide{
-  width:96%;
-}
-
-* {
-  box-sizing: border-box
-}
-
 .mySlides {
   position: absolute;
   width: 100%;
@@ -139,6 +139,7 @@ body {
   margin: -10px;
 
 }
+
 /* Next & previous buttons */
 .prev, .next {
   cursor: pointer;
@@ -154,15 +155,18 @@ body {
   border-radius: 0 3px 3px 0;
   z-index: 4
 }
+
 /* Position the "next button" to the right */
 .next {
   right: 0;
   border-radius: 3px 0 0 3px;
 }
+
 /* On hover, add a black background color with a little bit see-through */
 .prev:hover, .next:hover {
-  background-color: rgba(0,0,0,0.8);
+  background-color: rgba(0, 0, 0, 0.8);
 }
+
 /* Caption text */
 .text {
   color: #f2f2f2;
@@ -205,6 +209,7 @@ body {
 .active_slide, .dot:hover {
   background-color: #494B55;
 }
+
 /* Fading animation */
 .fade {
   -webkit-animation-name: fade;
@@ -212,24 +217,34 @@ body {
   animation-name: fade;
   animation-duration: 2s;
 }
+
 @-webkit-keyframes fade {
-  from {opacity: 0}
-  to {opacity: 1}
+  from {
+    opacity: 0
+  }
+  to {
+    opacity: 1
+  }
 }
 
 @keyframes fade {
-  from {opacity: 0}
-  to {opacity: 1}
+  from {
+    opacity: 0
+  }
+  to {
+    opacity: 1
+  }
 }
 
 /* On smaller screens, decrease text size */
 @media only screen and (max-width: 300px) {
-  .text {font-size: 11px}
+  .text {
+    font-size: 11px
+  }
 }
 
-.pics
-{
-  width:100%;
+.pics {
+  width: 100%;
   height: 100%;
   object-fit: cover;
   z-index: 0;
