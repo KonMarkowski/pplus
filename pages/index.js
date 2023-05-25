@@ -7,7 +7,7 @@ import SeoHead from "../components/SeoHead";
 export default function Home() {
   return (
     <>
-      <SeoHead title='Projekt Plus' />
+      <SeoHead title='Projekt Plusgi' />
       <Layout>
         <Hero />
         <Feature />
