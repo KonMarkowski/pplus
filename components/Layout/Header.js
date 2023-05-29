@@ -24,7 +24,7 @@ const Header = () => {
             >
                 <nav className="max-w-screen-xl px-6 sm:px-8 lg:px-16 mx-auto grid grid-flow-col py-3 sm:py-4">
                     <div className="col-start-1 col-end-2 flex items-center">
-                        <Image src="/assets/Logo.png" alt="Logp" quality={100} width={200} height={40} />
+                        <Image src="/assets/Logo.png" alt="Logp" quality={100} width={200} height={40\} />
                     </div>
                     <ul className="hidden lg:flex col-start-4 col-end-8 text-black-500  items-center">
                         <LinkScroll
@@ -153,7 +153,7 @@ const Header = () => {
                             }}
                             className={
                                 'mx-1 sm:mx-2 px-3 sm:px-4 py-2 flex flex-col items-center text-xs border-t-2 transition-all ' +
-                                (activeLink === 'feature'
+                                (activeLink === 'offer'
                                     ? '  border-pplusBlue-500 text-pplusBlue-500'
                                     : ' border-transparent ')
                             }
@@ -185,7 +185,7 @@ const Header = () => {
                             }}
                             className={
                                 'mx-1 sm:mx-2 px-3 sm:px-4 py-2 flex flex-col items-center text-xs border-t-2 transition-all ' +
-                                (activeLink === 'pricing'
+                                (activeLink === 'team'
                                     ? '  border-pplusBlue-500 text-pplusBlue-500'
                                     : ' border-transparent ')
                             }
@@ -217,7 +217,7 @@ const Header = () => {
                             }}
                             className={
                                 'mx-1 sm:mx-2 px-3 sm:px-4 py-2 flex flex-col items-center text-xs border-t-2 transition-all ' +
-                                (activeLink === 'testimoni'
+                                (activeLink === 'projects'
                                     ? '  border-pplusBlue-500 text-pplusBlue-500'
                                     : ' border-transparent ')
                             }
