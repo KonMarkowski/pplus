@@ -17,7 +17,11 @@ const Offer = () => {
     const scrollAnimation = useMemo(() => getScrollAnimation(), []);
 
     return (
-        <div className="max-w-screen-xl sm:mb-14 px-6 sm:px-8 lg:px-16 mx-auto pt-[100px] mb-[-80px]" id="offer">
+        <div
+            style={{ paddingTop: '100px' }}
+            className="max-w-screen-xl sm:mb-14 px-6 sm:px-8 lg:px-16 mx-auto"
+            id="offer"
+        >
             <div className="grid grid-flow-row sm:grid-flow-col grid-cols-1 sm:grid-cols-2 gap-8">
                 <ScrollAnimationWrapper className="flex w-full justify-end">
                     <motion.div className="h-full w-full p-4" variants={scrollAnimation}>

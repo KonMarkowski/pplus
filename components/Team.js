@@ -13,7 +13,11 @@ const Team = () => {
     const scrollAnimation = useMemo(() => getScrollAnimation(), []);
 
     return (
-        <div className="max-w-screen-xl sm:mb-14 px-6 sm:px-8 lg:px-16 mx-auto pt-[100px]" id="team">
+        <div
+            style={{ paddingTop: '100px' }}
+            className="max-w-screen-xl sm:mb-14 px-6 sm:px-8 lg:px-16 mx-auto"
+            id="team"
+        >
             <h3 className="text-3xl lg:text-4xl font-medium leading-relaxed text-black-600">Zespół</h3>
             <ScrollAnimationWrapper>
                 <motion.p variants={scrollAnimation} className="leading-normal mx-auto my-8">
