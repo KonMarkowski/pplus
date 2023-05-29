@@ -76,12 +76,16 @@ const TeamList = ({
                 {team.map((person, index) => (
                     <div className="px-3" key={index}>
                         <div className="bg-center border-2  border-gray-500 hover:border-pplusBlue-500 transition-all rounded-2xl flex flex-col overflow-hidden">
-                            <div
-                                style={{
-                                    backgroundImage: `linear-gradient(0deg, rgba(255,255,255,1) 0%,  rgba(0,0,0,0) 10%, rgba(0,0,0,0) 100%), url(${person.image})`,
-                                }}
-                                className="h-[300px] bg-cover w-full"
-                            />
+                            <div className="bg-cover w-full">
+                                <img
+                                    style={{
+                                        backgroundImage: `linear-gradient(0deg, rgba(255,255,255,1) 0%,  rgba(0,0,0,0) 10%, rgba(0,0,0,0) 100%))`,
+                                    }}
+                                    src={person.image}
+                                    alt="Person"
+                                    height={300}
+                                />
+                            </div>
                             <h5 className="mt-3 text-center text-gray-700 text-xl">{person.name}</h5>
                             <p className="my-2 text-center text-gray-600">{person.description}.</p>
                         </div>
