@@ -8,9 +8,9 @@ const Team = () => {
     const scrollAnimation = useMemo(() => getScrollAnimation(), []);
 
     return (
-        <div style={{ backgroundColor: 'black' }}>
+        <div style={{ backgroundColor: 'transparent' }}>
             <div
-                style={{ paddingTop: '100px', backgroundColor: 'black' }}
+                style={{ paddingTop: '100px' }}
                 className="max-w-screen-xl sm:mb-14 px-6 sm:px-8 lg:px-16 mx-auto"
                 id="team"
             >

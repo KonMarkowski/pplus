@@ -32,25 +32,50 @@ const TeamList = () => {
             image: '/team/DSC_4190-Edit.jpg',
         },
     ];
+    const CustomNextArrow = ({ onClick }) => (
+        <div
+            className="mx-4 flex items-center justify-center h-14 w-14 rounded-full bg-backgroundSemiTransparent-600 border-pplusBlue-500 border hover:bg-pplusBlue-500 hover:text-white-500 transition-all text-pplusBlue-500 cursor-pointer"
+            style={{
+                position: 'absolute',
+                zIndex: 1000,
+                top: '50%',
+                right: 0,
+                transform: 'translate(0, -50%)',
+                backdropFilter: 'blur(5px)',
+            }}
+            onClick={onClick}
+        >
+            <ArrowNext className="h-6 w-6 " />
+        </div>
+    );
+
+    const CustomPrevArrow = ({ onClick }) => (
+        <div
+            className="mx-4 flex items-center justify-center h-14 w-14 rounded-full bg-backgroundSemiTransparent-600  border-pplusBlue-500 border hover:bg-pplusBlue-500 hover:text-white-500 transition-all text-pplusBlue-500 cursor-pointer"
+            style={{
+                position: 'absolute',
+                zIndex: 1000,
+                top: '50%',
+                left: 0,
+                transform: 'translate(0, -50%)',
+                backdropFilter: 'blur(5px)',
+            }}
+            onClick={onClick}
+        >
+            <ArrowBack className="h-6 w-6 " />
+        </div>
+    );
 
     const settings = {
-        // dots: true,
-        customPaging: function (i) {
-            return (
-                <a className="">
-                    <span className="mx-2 rounded-l-full rounded-r-full h-4 w-4 block cursor-pointer transition-all "></span>
-                </a>
-            );
-        },
-        // dotsClass: 'slick-dots w-max absolute mt-20  ',
-        className: 'center',
+        className: 'slides',
         infinite: true,
         speed: 500,
-        // slidesToShow: team.length > 3 ? 3 : team.length,
         slidesToShow: 3,
         centerMode: true,
-        centerPadding: '60px',
         slidesToScroll: 1,
+        arrows: true,
+        nextArrow: <CustomNextArrow />,
+        prevArrow: <CustomPrevArrow />,
         responsive: [
             {
                 breakpoint: 770,
@@ -69,16 +94,11 @@ const TeamList = () => {
             },
         ],
     };
-    const [sliderRef, setSliderRef] = useState(null);
+    const [setSliderRef] = useState(null);
 
     return (
         <>
-            <Slider
-                {...settings}
-                arrows={false}
-                ref={setSliderRef}
-                className="flex items-stretch justify-items-stretch"
-            >
+            <Slider {...settings} ref={setSliderRef} className="flex items-stretch justify-items-stretch">
                 {team.map((person, index) => (
                     <div className="px-3" key={index}>
                         <div className="bg-center transition-all rounded-2xl flex flex-col overflow-hidden">
@@ -92,30 +112,10 @@ const TeamList = () => {
                                     height={300}
                                 />
                             </div>
-                            {/*<h5 className="mt-3 text-center text-gray-700 text-xl">{person.name}</h5>*/}
-                            {/*<p className="my-2 text-center text-gray-600">{person.description}</p>*/}
                         </div>
                     </div>
                 ))}
             </Slider>
-            {team.length > 3 && (
-                <div className="flex w-full items-center justify-end">
-                    <div className="flex flex-none justify-between w-auto mt-14">
-                        <div
-                            className="mx-4 flex items-center justify-center h-14 w-14 rounded-full bg-white border-pplusBlue-500 border hover:bg-pplusBlue-500 hover:text-white-500 transition-all text-pplusBlue-500 cursor-pointer"
-                            onClick={sliderRef?.slickPrev}
-                        >
-                            <ArrowBack className="h-6 w-6 " />
-                        </div>
-                        <div
-                            className="flex items-center justify-center h-14 w-14 rounded-full bg-white border-pplusBlue-500 border hover:bg-pplusBlue-500 hover:text-white-500 transition-all text-pplusBlue-500 cursor-pointer"
-                            onClick={sliderRef?.slickNext}
-                        >
-                            <ArrowNext className="h-6 w-6" />
-                        </div>
-                    </div>
-                </div>
-            )}
         </>
     );
 };

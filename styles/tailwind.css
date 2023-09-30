@@ -52,15 +52,7 @@ li.check:before {
   font-size: 400%;
 }
 /* Slideshow */
-.slick-dots li {
-  @apply inline-block;
-}
-.slick-dots span {
-  @apply bg-gray-500;
-}
-.slick-dots .slick-active span {
-  @apply bg-pplusBlue-500 rounded-l-full rounded-r-full w-12;
-}
+
 
 /* purgecss end ignore */
 @tailwind utilities;

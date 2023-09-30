@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import Link from 'next/link';
-// Import react scroll
 import { Link as LinkScroll } from 'react-scroll';
 import ButtonOutline from '../misc/ButtonOutline.';
 import Image from 'next/image';
 
-const Header = () => {
-    const [activeLink, setActiveLink] = useState(null);
+const Header = ({ activeLink, setActiveLink }) => {
+    const [linkInView, setLinkInView] = useState(null);
+    const [scrollingTo, setScrollingTo] = useState(null);
     const [scrollActive, setScrollActive] = useState(false);
     useEffect(() => {
         window.addEventListener('scroll', () => {
@@ -14,9 +13,24 @@ const Header = () => {
         });
     }, []);
 
+    useEffect(() => {
+        if (scrollingTo === null && activeLink !== linkInView) {
+            setActiveLink(linkInView);
+        }
+
+        if (scrollingTo !== null && activeLink !== scrollingTo) {
+            setActiveLink(scrollingTo);
+        }
+
+        if (scrollingTo === linkInView) {
+            setScrollingTo(null);
+        }
+    }, [activeLink, scrollingTo, linkInView]);
+
     return (
         <>
             <header
+                style={{ backgroundColor: 'rgba(255, 255, 255, 0.6)', backdropFilter: 'blur(20px)' }}
                 className={
                     'fixed top-0 w-full  z-30 bg-white-500 transition-all ' +
                     (scrollActive ? ' shadow-md pt-0' : ' pt-4')
@@ -33,12 +47,15 @@ const Header = () => {
                             spy={true}
                             smooth={true}
                             duration={1000}
+                            onClick={() => {
+                                setScrollingTo('about');
+                            }}
                             onSetActive={() => {
-                                setActiveLink('about');
+                                setLinkInView('about');
                             }}
                             className={
                                 'px-4 py-2 mx-2 cursor-pointer animation-hover inline-block relative' +
-                                (activeLink === 'about'
+                                (linkInView === 'about'
                                     ? ' text-pplusBlue-500 animation-active '
                                     : ' text-black-500 hover:text-pplusBlue-500 a')
                             }
@@ -51,12 +68,15 @@ const Header = () => {
                             spy={true}
                             smooth={true}
                             duration={1000}
+                            onClick={() => {
+                                setScrollingTo('offer');
+                            }}
                             onSetActive={() => {
-                                setActiveLink('offer');
+                                setLinkInView('offer');
                             }}
                             className={
                                 'px-4 py-2 mx-2 cursor-pointer animation-hover inline-block relative' +
-                                (activeLink === 'offer'
+                                (linkInView === 'offer'
                                     ? ' text-pplusBlue-500 animation-active '
                                     : ' text-black-500 hover:text-pplusBlue-500 ')
                             }
@@ -69,12 +89,15 @@ const Header = () => {
                             spy={true}
                             smooth={true}
                             duration={1000}
+                            onClick={() => {
+                                setScrollingTo('team');
+                            }}
                             onSetActive={() => {
-                                setActiveLink('team');
+                                setLinkInView('team');
                             }}
                             className={
                                 'px-4 py-2 mx-2 cursor-pointer animation-hover inline-block relative' +
-                                (activeLink === 'team'
+                                (linkInView === 'team'
                                     ? ' text-pplusBlue-500 animation-active '
                                     : ' text-black-500 hover:text-pplusBlue-500 ')
                             }
@@ -87,12 +110,15 @@ const Header = () => {
                             spy={true}
                             smooth={true}
                             duration={1000}
+                            onClick={() => {
+                                setScrollingTo('projects');
+                            }}
                             onSetActive={() => {
-                                setActiveLink('projects');
+                                setLinkInView('projects');
                             }}
                             className={
                                 'px-4 py-2 mx-2 cursor-pointer animation-hover inline-block relative' +
-                                (activeLink === 'projects'
+                                (linkInView === 'projects'
                                     ? ' text-pplusBlue-500 animation-active '
                                     : ' text-black-500 hover:text-pplusBlue-500 ')
                             }
@@ -117,11 +143,11 @@ const Header = () => {
                             smooth={true}
                             duration={1000}
                             onSetActive={() => {
-                                setActiveLink('about');
+                                setLinkInView('about');
                             }}
                             className={
                                 'mx-1 sm:mx-2 px-3 sm:px-4 py-2 flex flex-col items-center text-xs border-t-2 transition-all ' +
-                                (activeLink === 'about'
+                                (linkInView === 'about'
                                     ? '  border-pplusBlue-500 text-pplusBlue-500'
                                     : ' border-transparent')
                             }
@@ -149,11 +175,11 @@ const Header = () => {
                             smooth={true}
                             duration={1000}
                             onSetActive={() => {
-                                setActiveLink('offer');
+                                setLinkInView('offer');
                             }}
                             className={
                                 'mx-1 sm:mx-2 px-3 sm:px-4 py-2 flex flex-col items-center text-xs border-t-2 transition-all ' +
-                                (activeLink === 'offer'
+                                (linkInView === 'offer'
                                     ? '  border-pplusBlue-500 text-pplusBlue-500'
                                     : ' border-transparent ')
                             }
@@ -181,11 +207,11 @@ const Header = () => {
                             smooth={true}
                             duration={1000}
                             onSetActive={() => {
-                                setActiveLink('team');
+                                setLinkInView('team');
                             }}
                             className={
                                 'mx-1 sm:mx-2 px-3 sm:px-4 py-2 flex flex-col items-center text-xs border-t-2 transition-all ' +
-                                (activeLink === 'team'
+                                (linkInView === 'team'
                                     ? '  border-pplusBlue-500 text-pplusBlue-500'
                                     : ' border-transparent ')
                             }
@@ -213,11 +239,11 @@ const Header = () => {
                             smooth={true}
                             duration={1000}
                             onSetActive={() => {
-                                setActiveLink('projects');
+                                setLinkInView('projects');
                             }}
                             className={
                                 'mx-1 sm:mx-2 px-3 sm:px-4 py-2 flex flex-col items-center text-xs border-t-2 transition-all ' +
-                                (activeLink === 'projects'
+                                (linkInView === 'projects'
                                     ? '  border-pplusBlue-500 text-pplusBlue-500'
                                     : ' border-transparent ')
                             }
