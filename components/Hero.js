@@ -1,5 +1,4 @@
 import React, { useMemo } from 'react';
-import Image from 'next/image';
 import ButtonPrimary from './misc/ButtonPrimary';
 import { motion } from 'framer-motion';
 import getScrollAnimation from '../utils/getScrollAnimation';
@@ -44,14 +43,19 @@ const Hero = ({
                     </div>
                     <div className="flex w-full">
                         <motion.div className="h-full w-full" variants={scrollAnimation}>
-                            <Image
-                                src="/assets/Construction-engineers-planning-site-process.png"
-                                alt="Construction site ilustration"
-                                quality={100}
-                                width={612}
-                                height={383}
-                                layout="responsive"
-                            />
+                            <div
+                                style={{
+                                    background: `url(team/DSC_4495-Edit.jpg)`,
+                                    boxShadow: 'inset 0px 0px 15px 15px white',
+                                    backgroundSize: 'cover',
+                                }}
+                            >
+                                <img
+                                    src="/team/DSC_4495-Edit.jpg"
+                                    style={{ visibility: 'hidden' }}
+                                    alt="Construction site ilustration"
+                                />
+                            </div>
                         </motion.div>
                     </div>
                 </motion.div>
