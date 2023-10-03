@@ -8,14 +8,12 @@ import { useState } from 'react';
 export default function Home() {
     const [activeLink, setActiveLink] = useState(null);
 
-    console.log(activeLink);
-
     return (
         <div
-            style={{
-                backgroundColor: activeLink === 'team' ? 'black' : 'white',
-                transition: 'background-color 1s ease',
-            }}
+        // style={{
+        //     backgroundColor: activeLink === 'team' ? 'black' : 'white',
+        //     transition: 'background-color 1s ease',
+        // }}
         >
             <SeoHead title="Projekt Plus" />
             <Layout activeLink={activeLink} setActiveLink={setActiveLink}>

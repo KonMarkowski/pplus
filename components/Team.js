@@ -11,12 +11,12 @@ const Team = () => {
         <div style={{ backgroundColor: 'transparent' }}>
             <div
                 style={{ paddingTop: '100px' }}
-                className="max-w-screen-xl sm:mb-14 px-6 sm:px-8 lg:px-16 mx-auto"
+                className="max-w-screen-xl sm:mb-14 sm:px-8 lg:px-16 mx-auto"
                 id="team"
             >
-                <h3 className="text-3xl lg:text-4xl font-medium leading-relaxed text-white-300">Zespół</h3>
+                <h3 className="text-3xl lg:text-4xl px-6 font-medium leading-relaxed text-white-300">Zespół</h3>
                 <ScrollAnimationWrapper>
-                    <motion.p variants={scrollAnimation} className="leading-normal mx-auto my-8">
+                    <motion.p variants={scrollAnimation} className="leading-normal mx-auto my-8 px-6">
                         PROJEKT PLUS to zespół młodych inżynierów z doświadczeniem zdobytym podczas pracy nad projektami
                         dla klientów i inwestorów z Polski, Norwegii oraz Wielkiej Brytanii.
                     </motion.p>

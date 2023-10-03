@@ -34,15 +34,7 @@ const TeamList = () => {
     ];
     const CustomNextArrow = ({ onClick }) => (
         <div
-            className="mx-4 flex items-center justify-center h-14 w-14 rounded-full bg-backgroundSemiTransparent-600 border-pplusBlue-500 border hover:bg-pplusBlue-500 hover:text-white-500 transition-all text-pplusBlue-500 cursor-pointer"
-            style={{
-                position: 'absolute',
-                zIndex: 1000,
-                top: '50%',
-                right: 0,
-                transform: 'translate(0, -50%)',
-                backdropFilter: 'blur(5px)',
-            }}
+            className="slick-arrow slick-arrow-next sm:hidden mx-4 flex items-center justify-center h-14 w-14 rounded-full bg-backgroundSemiTransparent-600 border-pplusBlue-500 border hover:bg-pplusBlue-500 hover:text-white-500 transition-all text-pplusBlue-500 cursor-pointer"
             onClick={onClick}
         >
             <ArrowNext className="h-6 w-6 " />
@@ -51,7 +43,7 @@ const TeamList = () => {
 
     const CustomPrevArrow = ({ onClick }) => (
         <div
-            className="slick-arrow mx-4 flex items-center justify-center h-14 w-14 rounded-full bg-backgroundSemiTransparent-600  border-pplusBlue-500 border hover:bg-pplusBlue-500 hover:text-white-500 transition-all text-pplusBlue-500 cursor-pointer"
+            className="slick-arrow slick-arrow-prev sm:hidden mx-4 flex items-center justify-center h-14 w-14 rounded-full bg-backgroundSemiTransparent-600  border-pplusBlue-500 border hover:bg-pplusBlue-500 hover:text-white-500 transition-all text-pplusBlue-500 cursor-pointer"
             onClick={onClick}
         >
             <ArrowBack className="h-6 w-6 " />
@@ -68,6 +60,7 @@ const TeamList = () => {
         arrows: true,
         nextArrow: <CustomNextArrow />,
         prevArrow: <CustomPrevArrow />,
+
         responsive: [
             {
                 breakpoint: 770,
@@ -95,14 +88,7 @@ const TeamList = () => {
                     <div className="px-3" key={index}>
                         <div className="bg-center transition-all rounded-2xl flex flex-col overflow-hidden">
                             <div className="bg-cover w-full">
-                                <img
-                                    style={{
-                                        backgroundImage: `linear-gradient(0deg, rgba(255,255,255,1) 0%,  rgba(0,0,0,0) 10%, rgba(0,0,0,0) 100%))`,
-                                    }}
-                                    src={person.image}
-                                    alt="Person"
-                                    height={300}
-                                />
+                                <img src={person.image} alt="Person" height={300} />
                             </div>
                         </div>
                     </div>

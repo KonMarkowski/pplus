@@ -130,10 +130,10 @@ const Header = ({ activeLink, setActiveLink }) => {
                     </div>
                 </nav>
             </header>
-            {/* Mobile Navigation */}
 
-            <nav className="fixed lg:hidden bottom-0 left-0 right-0 z-20 px-4 sm:px-8 shadow-t ">
-                <div className="bg-white-500 sm:px-3">
+            {/* Mobile Navigation */}
+            <nav className="navbar-bottom fixed lg:hidden bottom-0 left-0 right-0 px-4 sm:px-8 shadow-t bg-white-500">
+                <div className=" sm:px-3">
                     <ul className="flex w-full justify-between items-center text-black-500">
                         <LinkScroll
                             activeClass="active"

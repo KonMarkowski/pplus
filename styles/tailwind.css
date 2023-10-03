@@ -58,6 +58,10 @@ li.check:before {
   -webkit-backdrop-filter: blur(20px);
 }
 
+.navbar-bottom {
+  z-index: 999999;
+}
+
 
 /* purgecss end ignore */
 @tailwind utilities;
