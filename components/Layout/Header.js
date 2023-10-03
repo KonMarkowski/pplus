@@ -30,10 +30,9 @@ const Header = ({ activeLink, setActiveLink }) => {
     return (
         <>
             <header
-                style={{ backgroundColor: 'rgba(255, 255, 255, 0.6)', backdropFilter: 'blur(20px)' }}
+                // style={{ backgroundColor: 'rgba(255, 255, 255, 0.6)', backdropFilter: 'blur(20px)' }}
                 className={
-                    'fixed top-0 w-full  z-30 bg-white-500 transition-all ' +
-                    (scrollActive ? ' shadow-md pt-0' : ' pt-4')
+                    'navbar-top fixed top-0 w-full  z-30 transition-all ' + (scrollActive ? ' shadow-md pt-0' : ' pt-4')
                 }
             >
                 <nav className="max-w-screen-xl px-6 sm:px-8 lg:px-16 mx-auto grid grid-flow-col py-3 sm:py-4">

@@ -51,15 +51,7 @@ const TeamList = () => {
 
     const CustomPrevArrow = ({ onClick }) => (
         <div
-            className="mx-4 flex items-center justify-center h-14 w-14 rounded-full bg-backgroundSemiTransparent-600  border-pplusBlue-500 border hover:bg-pplusBlue-500 hover:text-white-500 transition-all text-pplusBlue-500 cursor-pointer"
-            style={{
-                position: 'absolute',
-                zIndex: 1000,
-                top: '50%',
-                left: 0,
-                transform: 'translate(0, -50%)',
-                backdropFilter: 'blur(5px)',
-            }}
+            className="slick-arrow mx-4 flex items-center justify-center h-14 w-14 rounded-full bg-backgroundSemiTransparent-600  border-pplusBlue-500 border hover:bg-pplusBlue-500 hover:text-white-500 transition-all text-pplusBlue-500 cursor-pointer"
             onClick={onClick}
         >
             <ArrowBack className="h-6 w-6 " />
