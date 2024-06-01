@@ -48,18 +48,9 @@ const Topbar = ({
         component="a"
         href="/"
         title="theFront"
-        width={{ xs: 100, md: 120 }}
+        width={{ xs: 200, md: 220 }}
       >
-        <Box
-          component={'img'}
-          src={
-            mode === 'light' && !colorInvert
-              ? 'https://assets.maccarianagency.com/the-front/logos/logo.svg'
-              : 'https://assets.maccarianagency.com/the-front/logos/logo-negative.svg'
-          }
-          height={1}
-          width={1}
-        />
+        <Box component={'img'} src={'/assets/logo.png'} height={1} width={1} />
       </Box>
       <Box sx={{ display: { xs: 'none', md: 'flex' } }} alignItems={'center'}>
         <Box>

@@ -10,15 +10,16 @@ import 'slick-carousel/slick/slick-theme.css';
 import 'aos/dist/aos.css';
 
 /* eslint-disable react/prop-types */
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
     <html lang="en">
       <head>
         <meta charSet="utf-8" />
-        <link
-          rel="shortcut icon"
-          href="https://assets.maccarianagency.com/favicons/thefront/favicon.ico"
-        />
+        <link rel="shortcut icon" href="/favicon.ico" />
         <meta name="theme-color" content="#ffffff" />
         <meta
           name="description"
@@ -53,11 +54,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         />
       </head>
       <body>
-        <Page>
-          {children}
-        </Page>
+        <Page>{children}</Page>
       </body>
     </html>
   );
 }
-  
