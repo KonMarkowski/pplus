@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link as LinkScroll } from 'react-scroll';
-import ButtonOutline from '../misc/ButtonOutline.';
-import Image from 'next/image';
+import { Menu, QuestionAnswerOutlined } from '@material-ui/icons';
+import { colors } from '@/styles/colors';
+import { Button, IconButton } from '@material-ui/core';
 
 const Header = ({ activeLink, setActiveLink }) => {
     const [linkInView, setLinkInView] = useState(null);
@@ -29,105 +30,24 @@ const Header = ({ activeLink, setActiveLink }) => {
 
     return (
         <>
-            <header
-                // style={{ backgroundColor: 'rgba(255, 255, 255, 0.6)', backdropFilter: 'blur(20px)' }}
-                className={
-                    'navbar-top fixed top-0 w-full  z-30 transition-all ' + (scrollActive ? ' shadow-md pt-0' : ' pt-4')
-                }
-            >
-                <nav className="max-w-screen-xl px-6 sm:px-8 lg:px-16 mx-auto grid grid-flow-col py-3 sm:py-4">
-                    <div className="col-start-1 col-end-2 flex items-center">
-                        <Image src="/assets/Logo.png" alt="Logp" quality={100} width={200} height={40} />
-                    </div>
-                    <ul className="hidden lg:flex col-start-4 col-end-8 text-black-500  items-center">
-                        <LinkScroll
-                            activeClass="active"
-                            to="about"
-                            spy={true}
-                            smooth={true}
-                            duration={1000}
-                            onClick={() => {
-                                setScrollingTo('about');
-                            }}
-                            onSetActive={() => {
-                                setLinkInView('about');
-                            }}
-                            className={
-                                'px-4 py-2 mx-2 cursor-pointer animation-hover inline-block relative' +
-                                (linkInView === 'about'
-                                    ? ' text-pplusBlue-500 animation-active '
-                                    : ' text-black-500 hover:text-pplusBlue-500 a')
-                            }
-                        >
-                            O nas
-                        </LinkScroll>
-                        <LinkScroll
-                            activeClass="active"
-                            to="offer"
-                            spy={true}
-                            smooth={true}
-                            duration={1000}
-                            onClick={() => {
-                                setScrollingTo('offer');
-                            }}
-                            onSetActive={() => {
-                                setLinkInView('offer');
-                            }}
-                            className={
-                                'px-4 py-2 mx-2 cursor-pointer animation-hover inline-block relative' +
-                                (linkInView === 'offer'
-                                    ? ' text-pplusBlue-500 animation-active '
-                                    : ' text-black-500 hover:text-pplusBlue-500 ')
-                            }
-                        >
-                            Oferta
-                        </LinkScroll>
-                        <LinkScroll
-                            activeClass="active"
-                            to="team"
-                            spy={true}
-                            smooth={true}
-                            duration={1000}
-                            onClick={() => {
-                                setScrollingTo('team');
-                            }}
-                            onSetActive={() => {
-                                setLinkInView('team');
-                            }}
-                            className={
-                                'px-4 py-2 mx-2 cursor-pointer animation-hover inline-block relative' +
-                                (linkInView === 'team'
-                                    ? ' text-pplusBlue-500 animation-active '
-                                    : ' text-black-500 hover:text-pplusBlue-500 ')
-                            }
-                        >
-                            Zespół
-                        </LinkScroll>
-                        <LinkScroll
-                            activeClass="active"
-                            to="projects"
-                            spy={true}
-                            smooth={true}
-                            duration={1000}
-                            onClick={() => {
-                                setScrollingTo('projects');
-                            }}
-                            onSetActive={() => {
-                                setLinkInView('projects');
-                            }}
-                            className={
-                                'px-4 py-2 mx-2 cursor-pointer animation-hover inline-block relative' +
-                                (linkInView === 'projects'
-                                    ? ' text-pplusBlue-500 animation-active '
-                                    : ' text-black-500 hover:text-pplusBlue-500 ')
-                            }
-                        >
-                            Projekty
-                        </LinkScroll>
-                    </ul>
-                    <div className="col-start-10 col-end-12 font-medium flex justify-end items-center">
-                        <ButtonOutline>Kontakt</ButtonOutline>
-                    </div>
+            <header className={'navbar-top fixed top-0 w-full  z-30 transition-all'}>
+                <nav
+                    className="px-6 sm:px-8 lg:px-16 mx-auto grid grid-flow-col py-3 sm:py-4"
+                    style={{ display: 'flex', justifyContent: 'space-between' }}
+                >
+                    <div
+                        style={{
+                            backgroundImage: 'url("/assets/Logo.png")',
+                            width: '400px',
+                            height: '80px',
+                            backgroundSize: 'contain',
+                            backgroundRepeat: 'no-repeat',
+                        }}
+                    />
+                    {/*TODO: burgerek tylko na desktop*/}
+                    <IconButton>
+                        <Menu fontSize={'large'} />
+                    </IconButton>
                 </nav>
             </header>
 
@@ -263,6 +183,19 @@ const Header = ({ activeLink, setActiveLink }) => {
                             </svg>
                             Projekty
                         </LinkScroll>
+                        <div
+                            style={{
+                                position: 'fixed',
+                                right: 20,
+                                bottom: 70,
+                                borderRadius: 1000,
+                                background: colors.pplusBlue['500'],
+                                color: 'white',
+                                padding: 15,
+                            }}
+                        >
+                            <QuestionAnswerOutlined />
+                        </div>
                     </ul>
                 </div>
             </nav>

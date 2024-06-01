@@ -27,7 +27,7 @@ module.exports = {
             },
             pplusBlue: {
                 100: '#FFECEC',
-                500: '#667BB4',
+                500: '#6C8CC8',
             },
             green: {
                 500: '#2FAB73',

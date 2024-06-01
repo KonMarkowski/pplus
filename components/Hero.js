@@ -3,6 +3,7 @@ import ButtonPrimary from './misc/ButtonPrimary';
 import { motion } from 'framer-motion';
 import getScrollAnimation from '../utils/getScrollAnimation';
 import ScrollAnimationWrapper from './Layout/ScrollAnimationWrapper';
+import { useMediaQuery, useTheme } from '@material-ui/core';
 
 const Hero = ({
     listUser = [
@@ -23,42 +24,77 @@ const Hero = ({
         },
     ],
 }) => {
+    const theme = useTheme();
+    const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
     const scrollAnimation = useMemo(() => getScrollAnimation(), []);
 
     return (
-        <div style={{ paddingTop: '50px' }} className="max-w-screen-xl px-8 xl:px-16 mx-auto" id="about">
+        <div style={{ paddingTop: '50px' }}>
             <ScrollAnimationWrapper>
-                <motion.div
-                    className="grid grid-flow-row sm:grid-flow-col grid-rows-2 md:grid-rows-1 sm:grid-cols-2 gap-8 py-6 sm:py-16"
-                    variants={scrollAnimation}
+                {/*<motion.div variants={scrollAnimation}>*/}
+                <div
+                    style={{
+                        display: 'flex',
+                        height: '100vh',
+                        position: 'relative',
+                    }}
                 >
-                    <div className=" flex flex-col justify-center items-start row-start-2 sm:row-start-1">
-                        <h1 className="text-3xl lg:text-4xl xl:text-5xl font-medium text-black-600 leading-normal">
-                            Z <strong>PPLUS</strong> każdy projekt idzie gładko.
-                        </h1>
-                        <p className="text-black-500 mt-4 mb-6">
-                            Świadczymy kompleksowe usługi związane z projektowaniem konstrukcji budowlanych.
-                        </p>
-                        <ButtonPrimary>Dowiedz się więcej</ButtonPrimary>
+                    <div
+                        className={'centerHeader'}
+                        style={{
+                            position: 'absolute',
+                            display: 'flex',
+                            maxWidth: '100%',
+                            left: '50%',
+                            top: '50%',
+                            transform: 'translate(-50%, -50%)',
+                            flexDirection: 'column',
+                            fontSize: 60,
+                            textAlign: 'center',
+                            letterSpacing: 5,
+                        }}
+                    >
+                        <h1>We are a solid foundation</h1>
+                        <h1>for groundbreaking results</h1>
+                        <h1>+ Let’s BUILD someTHING +</h1>
                     </div>
-                    <div className="flex w-full">
-                        <motion.div className="h-full w-full" variants={scrollAnimation}>
-                            <div
-                                style={{
-                                    background: `url(team/DSC_4495-Edit.jpg)`,
-                                    boxShadow: 'inset 0px 0px 15px 15px white',
-                                    backgroundSize: 'cover',
-                                }}
-                            >
-                                <img
-                                    src="/team/DSC_4495-Edit.jpg"
-                                    style={{ visibility: 'hidden' }}
-                                    alt="Construction site ilustration"
-                                />
-                            </div>
-                        </motion.div>
-                    </div>
-                </motion.div>
+                    {!isMobile && (
+                        <div
+                            style={{
+                                display: 'flex',
+                                justifyContent: 'end',
+                                alignItems: 'end',
+                                flexDirection: 'column',
+                                marginLeft: 'auto',
+                                padding: 76,
+                            }}
+                        >
+                            <h3 style={{ fontSize: 30 }}>Structural Engineering & Detailed Design</h3>
+                        </div>
+                    )}
+                    {/*<p className="text-black-500 mt-4 mb-6">*/}
+                    {/*    Świadczymy kompleksowe usługi związane z projektowaniem konstrukcji budowlanych.*/}
+                    {/*</p>*/}
+                    {/*<ButtonPrimary>Dowiedz się więcej</ButtonPrimary>*/}
+                </div>
+                {/*<div className="flex w-full">*/}
+                {/*    <motion.div className="h-full w-full" variants={scrollAnimation}>*/}
+                {/*        <div*/}
+                {/*            style={{*/}
+                {/*                background: `url(team/DSC_4495-Edit.jpg)`,*/}
+                {/*                boxShadow: 'inset 0px 0px 15px 15px white',*/}
+                {/*                backgroundSize: 'cover',*/}
+                {/*            }}*/}
+                {/*        >*/}
+                {/*            <img*/}
+                {/*                src="/team/DSC_4495-Edit.jpg"*/}
+                {/*                style={{ visibility: 'hidden' }}*/}
+                {/*                alt="Construction site ilustration"*/}
+                {/*            />*/}
+                {/*        </div>*/}
+                {/*    </motion.div>*/}
+                {/*</div>*/}
+                {/*</motion.div>*/}
             </ScrollAnimationWrapper>
             <div className="relative w-full flex">
                 <ScrollAnimationWrapper className="rounded-lg w-full grid grid-flow-row sm:grid-flow-row grid-cols-1 sm:grid-cols-3 py-9 divide-y-2 sm:divide-y-0 sm:divide-x-2 divide-gray-100 bg-white-500 z-10">
