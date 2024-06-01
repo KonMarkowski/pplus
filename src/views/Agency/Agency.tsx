@@ -66,14 +66,7 @@ const Agency = (): JSX.Element => {
 
   return (
     <Main>
-      <Box
-        minHeight={'100vh'}
-        display={'flex'}
-        alignItems={'center'}
-        bgcolor={'alternate.main'}
-        marginTop={-7}
-        paddingTop={7}
-      >
+      <Box minHeight={'100vh'} display={'flex'} alignItems={'center'}>
         <Container>
           <Box display={'flex'} flexDirection={'column'} alignItems={'center'}>
             <Welcome />

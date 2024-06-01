@@ -1,7 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useTheme } from '@mui/material/styles';
 import Box from '@mui/material/Box';
-import Button from '@mui/material/Button';
 import Divider from '@mui/material/Divider';
 import AppBar from '@mui/material/AppBar';
 import useScrollTrigger from '@mui/material/useScrollTrigger';
@@ -11,9 +10,10 @@ import Zoom from '@mui/material/Zoom';
 import NoSsr from '@mui/material/NoSsr';
 
 import Container from 'components/Container';
-import TopNav from 'components/TopNav';
 
-import { Footer } from './components';
+import { Footer, Sidebar } from './components';
+import { Squash as Hamburger } from 'hamburger-react';
+import pages from 'layouts/navigation-pplus';
 
 interface Props {
   children: React.ReactNode;
@@ -28,6 +28,12 @@ const Fluid = ({
 }: Props): JSX.Element => {
   const theme = useTheme();
   const { mode } = theme.palette;
+
+  const [openSidebar, setOpenSidebar] = useState(false);
+
+  const handleSidebarClose = (): void => {
+    setOpenSidebar(false);
+  };
 
   const trigger = useScrollTrigger({
     disableHysteresis: true,
@@ -45,6 +51,10 @@ const Fluid = ({
     });
   };
 
+  const handleToggle = (toggled: boolean) => {
+    setOpenSidebar(toggled);
+  };
+
   return (
     <Box id="js--fluid-top">
       <AppBar
@@ -52,17 +62,11 @@ const Fluid = ({
         sx={{
           top: 0,
           backgroundColor: bgcolor,
+          zIndex: 2,
         }}
         elevation={0}
       >
-        <Container
-          maxWidth={1500}
-          paddingTop={'8px !important'}
-          paddingBottom={'0 !important'}
-        >
-          <TopNav colorInvert={colorInvert} />
-        </Container>
-        <Container paddingY={1} maxWidth={1500}>
+        <Box paddingY={{ xs: 2, md: 5 }} paddingX={{ xs: 2, md: 10 }}>
           <Box
             display={'flex'}
             justifyContent={'space-between'}
@@ -74,32 +78,30 @@ const Fluid = ({
               component="a"
               href="/"
               title="theFront"
-              width={{ xs: 100, md: 120 }}
+              width={{ xs: 200, md: 300 }}
             >
               <Box
                 component={'img'}
-                src={
-                  mode === 'light' && !colorInvert
-                    ? 'https://assets.maccarianagency.com/the-front/logos/logo.svg'
-                    : 'https://assets.maccarianagency.com/the-front/logos/logo-negative.svg'
-                }
+                src={'/assets/logo.png'}
                 height={1}
                 width={1}
               />
             </Box>
-            <Button
-              variant="contained"
-              color="primary"
-              component="a"
-              target="blank"
-              href="https://mui.com/store/items/the-front-landing-page/"
-              size="large"
-            >
-              Buy now
-            </Button>
+            <Hamburger
+              size={30}
+              color={theme.palette.primary.main}
+              onToggle={handleToggle}
+              toggled={openSidebar}
+            />
           </Box>
-        </Container>
+        </Box>
       </AppBar>
+      <Sidebar
+        onClose={handleSidebarClose}
+        open={openSidebar}
+        variant="temporary"
+        pages={pages}
+      />
       <main>
         {children}
         <Divider />
