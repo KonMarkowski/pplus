@@ -1,9 +1,19 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-    reactStrictMode: true,
-    experimental: {
-        newNextLinkBehavior: false,
-    },
-};
+  experimental: {
+    appDir: true,
+  },
+  images: {
+    domains: ['assets.maccarianagency.com'],
+  },
+}
+ 
+module.exports = nextConfig
 
-module.exports = nextConfig;
+
+// // next.config.js
+// module.exports = {
+//   images: {
+//     domains: ['assets.maccarianagency.com'],
+//   },
+// }
