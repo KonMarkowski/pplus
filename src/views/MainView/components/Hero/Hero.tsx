@@ -1,12 +1,12 @@
 import React from 'react';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
-import Button from '@mui/material/Button';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { alpha, useTheme } from '@mui/material/styles';
 
 import Container from 'components/Container';
 import { Fade } from '@mui/material';
+import { useTranslation } from 'react-i18next';
 
 const NAVBAR_HEIGHT_DESKTOP = 152;
 const NAVBAR_HEIGHT_MOBILE = 83;
@@ -15,6 +15,7 @@ const Hero = (): JSX.Element => {
   const isMd = useMediaQuery(theme.breakpoints.up('md'), {
     defaultMatches: true,
   });
+  const { t } = useTranslation('home');
 
   return (
     <Box
@@ -54,8 +55,9 @@ const Hero = (): JSX.Element => {
                     fontWeight: 700,
                   }}
                 >
-                  We are a solid foundation for groundbreaking results
-                  <br />+ Let’s build some
+                  {t('hero.heading.firstPart')}
+                  <br />
+                  {t('hero.heading.secondPart')}
                   <Typography
                     color={'primary'}
                     component={'span'}
@@ -67,7 +69,7 @@ const Hero = (): JSX.Element => {
                       )} 0%)`,
                     }}
                   >
-                    THING
+                    {t('hero.heading.thirdPart')}
                   </Typography>{' '}
                   +
                 </Typography>

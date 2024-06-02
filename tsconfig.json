@@ -20,6 +20,10 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "baseUrl": "src",
+    "paths": {
+      "@/*": ["../*"],
+      "@/app/*": ["app/*"],
+    },
     "incremental": true,
     "plugins": [
       {

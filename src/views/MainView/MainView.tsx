@@ -1,22 +1,15 @@
 import React from 'react';
 import { alpha, useTheme } from '@mui/material/styles';
 import Box from '@mui/material/Box';
-import Main from 'layouts/Fluid';
+import Fluid from 'layouts/Fluid';
 import Container from 'components/Container';
-import {
-  GetStarted,
-  Features,
-  QuickStart,
-  Services,
-  Benefits,
-  Hero,
-} from './components';
+import { GetStarted, Features, QuickStart, Services, Benefits, Hero } from './components';
 
 const MainView = (): JSX.Element => {
   const theme = useTheme();
   return (
     <Box sx={{ overflowX: 'hidden' }}>
-      <Main bgcolor={'background.paper'}>
+      <Fluid bgcolor={'background.paper'}>
         <Hero />
         {/*<Container>*/}
         {/*  <Services />*/}
@@ -61,7 +54,7 @@ const MainView = (): JSX.Element => {
         {/*<Container>*/}
         {/*  <GetStarted />*/}
         {/*</Container>*/}
-      </Main>
+      </Fluid>
     </Box>
   );
 };
