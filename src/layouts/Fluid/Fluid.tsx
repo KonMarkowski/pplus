@@ -14,6 +14,7 @@ import Container from 'components/Container';
 import { Footer, Sidebar } from './components';
 import { Squash as Hamburger } from 'hamburger-react';
 import pages from 'layouts/navigation-pplus';
+import Menu from 'layouts/Fluid/components/Menu';
 
 interface Props {
   children: React.ReactNode;
@@ -21,11 +22,7 @@ interface Props {
   bgcolor?: string;
 }
 
-const Fluid = ({
-  children,
-  colorInvert = false,
-  bgcolor = 'alternate.main',
-}: Props): JSX.Element => {
+const Fluid = ({ children, colorInvert = false, bgcolor = 'alternate.main' }: Props): JSX.Element => {
   const theme = useTheme();
   const { mode } = theme.palette;
 
@@ -67,41 +64,15 @@ const Fluid = ({
         elevation={0}
       >
         <Box paddingY={{ xs: 2, md: 5 }} paddingX={{ xs: 2, md: 10 }}>
-          <Box
-            display={'flex'}
-            justifyContent={'space-between'}
-            alignItems={'center'}
-            width={1}
-          >
-            <Box
-              display={'flex'}
-              component="a"
-              href="/"
-              title="theFront"
-              width={{ xs: 200, md: 300 }}
-            >
-              <Box
-                component={'img'}
-                src={'/assets/logo.png'}
-                height={1}
-                width={1}
-              />
+          <Box display={'flex'} justifyContent={'space-between'} alignItems={'center'} width={1}>
+            <Box display={'flex'} component="a" href="/" title="theFront" width={{ xs: 200, md: 300 }}>
+              <Box component={'img'} src={'/assets/logo.png'} height={1} width={1} />
             </Box>
-            <Hamburger
-              size={30}
-              color={theme.palette.primary.main}
-              onToggle={handleToggle}
-              toggled={openSidebar}
-            />
+            <Menu />
           </Box>
         </Box>
       </AppBar>
-      <Sidebar
-        onClose={handleSidebarClose}
-        open={openSidebar}
-        variant="temporary"
-        pages={pages}
-      />
+      <Sidebar onClose={handleSidebarClose} open={openSidebar} variant="temporary" pages={pages} />
       <main>
         {children}
         <Divider />
