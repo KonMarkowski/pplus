@@ -1,10 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
-import { alpha, useTheme } from '@mui/material/styles';
+import { useTheme } from '@mui/material/styles';
 
 import Grid from '@mui/material/Grid';
-import { Fade, Grow, Slide } from '@mui/material';
+import { Slide } from '@mui/material';
+import { languages } from '@/src/lib/constants/languages';
+import { LanguageChanger } from '@/src/layouts/Fluid/components/Menu/components/LanguageChanger/LanguageChanger';
+import { useTranslation } from 'react-i18next';
 
 interface Props {
   pages: Array<PageItem>;
@@ -13,6 +16,7 @@ interface Props {
 
 const MenuItems = ({ pages, show }: Props): JSX.Element => {
   const theme = useTheme();
+  const { t } = useTranslation('common');
 
   const [activeLink, setActiveLink] = useState('');
   useEffect(() => {
@@ -41,11 +45,16 @@ const MenuItems = ({ pages, show }: Props): JSX.Element => {
                   fontWeight: activeLink === p.href ? 600 : 400,
                 }}
               >
-                {p.title}
+                {t(p.translationKey)}
               </Button>
             </Grid>
           </Slide>
         ))}
+        <Slide in={show} direction={'left'} timeout={(pages.length + 1) * 200}>
+          <Grid item xs={12}>
+            <LanguageChanger />
+          </Grid>
+        </Slide>
       </Box>
     </Box>
   );

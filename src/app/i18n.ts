@@ -9,6 +9,7 @@ export default async function initTranslations(
   i18nInstance?: i18n,
   resources?: Resource,
 ) {
+  const alwaysLoadedNS = ['common'];
   i18nInstance = i18nInstance || createInstance();
 
   i18nInstance.use(initReactI18next);
@@ -26,7 +27,7 @@ export default async function initTranslations(
     supportedLngs: i18nConfig.locales,
     defaultNS: namespaces[0],
     fallbackNS: namespaces[0],
-    ns: namespaces,
+    ns: [...alwaysLoadedNS, ...namespaces],
     preload: resources ? [] : i18nConfig.locales,
   });
 

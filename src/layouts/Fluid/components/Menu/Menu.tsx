@@ -1,11 +1,9 @@
 import React, { useState } from 'react';
-import Drawer from '@mui/material/Drawer';
 import Box from '@mui/material/Box';
 import { MenuItems } from './components';
 import { useTheme } from '@mui/material/styles';
 import pages from 'layouts/navigation-pplus';
 import { Squash as Hamburger } from 'hamburger-react';
-import { Fade, Slide } from '@mui/material';
 
 interface Props {}
 

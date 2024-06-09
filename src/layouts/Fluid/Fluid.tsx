@@ -12,7 +12,6 @@ import NoSsr from '@mui/material/NoSsr';
 import Container from 'components/Container';
 
 import { Footer, Sidebar } from './components';
-import { Squash as Hamburger } from 'hamburger-react';
 import pages from 'layouts/navigation-pplus';
 import Menu from 'layouts/Fluid/components/Menu';
 

@@ -10,6 +10,7 @@ import { useTranslation } from 'react-i18next';
 
 const NAVBAR_HEIGHT_DESKTOP = 152;
 const NAVBAR_HEIGHT_MOBILE = 83;
+
 const Hero = (): JSX.Element => {
   const theme = useTheme();
   const isMd = useMediaQuery(theme.breakpoints.up('md'), {
