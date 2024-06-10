@@ -5,9 +5,8 @@ import { useTheme } from '@mui/material/styles';
 
 import Grid from '@mui/material/Grid';
 import { Slide } from '@mui/material';
-import { languages } from '@/src/lib/constants/languages';
 import { LanguageChanger } from '@/src/layouts/Fluid/components/Menu/components/LanguageChanger/LanguageChanger';
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from 'next-i18next';
 
 interface Props {
   pages: Array<PageItem>;

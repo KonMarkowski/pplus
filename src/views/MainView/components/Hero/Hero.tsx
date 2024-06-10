@@ -6,7 +6,7 @@ import { alpha, useTheme } from '@mui/material/styles';
 
 import Container from 'components/Container';
 import { Fade } from '@mui/material';
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from 'next-i18next';
 
 const NAVBAR_HEIGHT_DESKTOP = 152;
 const NAVBAR_HEIGHT_MOBILE = 83;
