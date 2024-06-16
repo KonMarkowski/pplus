@@ -1,4 +1,8 @@
 {
   "contact.details": "Contact details",
-  "contact.contactUs": "Contact us"
+  "contact.contactUs": "Contact us",
+  "contact.address": "Romana Maya 1, 61-371 Poznan, Poland",
+  "contact.section.phone": "Phone",
+  "contact.section.email": "Email",
+  "contact.section.address": "Address",
 }

@@ -1,4 +1,8 @@
 {
   "contact.details": "Dane kontaktowe",
-  "contact.contactUs": "Skontaktuj się z nami"
+  "contact.contactUs": "Skontaktuj się z nami",
+  "contact.address": "Romana Maya 1, 61-371 Poznań",
+  "contact.section.phone": "Telefon",
+  "contact.section.email": "Email",
+  "contact.section.address": "Adres"
 }

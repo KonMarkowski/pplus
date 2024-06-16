@@ -1,5 +1,5 @@
 /* eslint-disable react/no-unescaped-entities */
-import React from 'react';
+import React, { useMemo } from 'react';
 import { useFormik } from 'formik';
 import * as yup from 'yup';
 import Box from '@mui/material/Box';
@@ -11,31 +11,44 @@ import Button from '@mui/material/Button';
 import { useTheme } from '@mui/material/styles';
 
 import Container from 'components/Container';
+import { useTranslation } from 'next-i18next';
 
-const validationSchema = yup.object({
-  firstName: yup
-    .string()
-    .trim()
-    .min(2, 'Please enter a valid name')
-    .max(50, 'Please enter a valid name')
-    .required('Please specify your first name'),
-  lastName: yup
-    .string()
-    .trim()
-    .min(2, 'Please enter a valid name')
-    .max(50, 'Please enter a valid name')
-    .required('Please specify your last name'),
-  email: yup.string().trim().email('Please enter a valid email address').required('Email is required.'),
-  message: yup.string().trim().required('Please specify your message'),
-});
+const phoneRegex = /^\d{0,9}$/;
 
 const Contact = (): JSX.Element => {
   const theme = useTheme();
+  const { t } = useTranslation('contact');
+
+  const validationSchema = useMemo(
+    () =>
+      yup.object().shape(
+        {
+          email: yup
+            .string()
+            .email(t('form.validation.email.message1'))
+            .when('phone', {
+              is: (phone) => !phone || phone.length === 0,
+              then: yup.string().email().required(t('form.validation.message')),
+              otherwise: yup.string(),
+            }),
+          phone: yup
+            .string()
+            .matches(phoneRegex, t('form.validation.phone.message1'))
+            .min(9, t('form.validation.phone.message2'))
+            .when('email', {
+              is: (email) => !email || email.length === 0,
+              then: yup.string().required(t('form.validation.message')),
+              otherwise: yup.string(),
+            }),
+        },
+        [['email', 'phone']],
+      ),
+    [],
+  );
 
   const LeftSide = (): JSX.Element => {
     const initialValues = {
-      firstName: '',
-      lastName: '',
+      phone: '',
       email: '',
       message: '',
     };
@@ -54,7 +67,7 @@ const Contact = (): JSX.Element => {
       <Box>
         <Box marginBottom={4}>
           <Typography variant={'h3'} sx={{ fontWeight: 700 }} gutterBottom>
-            Contact us
+            {t('contact.contactUs')}
           </Typography>
           <Typography color="text.secondary">
             Rather than worrying about switching offices every couple years, you can instead stay in the same location
@@ -66,51 +79,24 @@ const Contact = (): JSX.Element => {
             <Grid container spacing={4}>
               <Grid item xs={12} sm={6}>
                 <TextField
-                  sx={{ height: 54 }}
-                  label="First name"
+                  label={t('form.input.email.desc')}
                   variant="outlined"
-                  color="primary"
-                  size="medium"
-                  name="firstName"
-                  fullWidth
-                  value={formik.values.firstName}
-                  onChange={formik.handleChange}
-                  error={formik.touched.firstName && Boolean(formik.errors.firstName)}
-                  // @ts-ignore
-                  helperText={formik.touched.firstName && formik.errors.firstName}
-                />
-              </Grid>
-              <Grid item xs={12} sm={6}>
-                <TextField
-                  sx={{ height: 54 }}
-                  label="Last name"
-                  variant="outlined"
-                  color="primary"
-                  size="medium"
-                  name="lastName"
-                  fullWidth
-                  value={formik.values.lastName}
-                  onChange={formik.handleChange}
-                  error={formik.touched.lastName && Boolean(formik.errors.lastName)}
-                  // @ts-ignore
-                  helperText={formik.touched.lastName && formik.errors.lastName}
-                />
-              </Grid>
-              <Grid item xs={12}>
-                <TextField
-                  sx={{ height: 54 }}
-                  label="Email"
-                  type="email"
-                  variant="outlined"
-                  color="primary"
-                  size="medium"
-                  name="email"
+                  name={'email'}
                   fullWidth
                   value={formik.values.email}
                   onChange={formik.handleChange}
                   error={formik.touched.email && Boolean(formik.errors.email)}
-                  // @ts-ignore
-                  helperText={formik.touched.email && formik.errors.email}
+                />
+              </Grid>
+              <Grid item xs={12} sm={6}>
+                <TextField
+                  label={t('form.input.phone.desc')}
+                  variant="outlined"
+                  name={'phone'}
+                  fullWidth
+                  value={formik.values.phone}
+                  onChange={formik.handleChange}
+                  error={formik.touched.phone && Boolean(formik.errors.phone)}
                 />
               </Grid>
               <Grid item xs={12}>
