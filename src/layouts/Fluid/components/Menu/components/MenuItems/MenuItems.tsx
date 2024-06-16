@@ -11,9 +11,10 @@ import { useTranslation } from 'next-i18next';
 interface Props {
   pages: Array<PageItem>;
   show: boolean;
+  colorInvert?: boolean;
 }
 
-const MenuItems = ({ pages, show }: Props): JSX.Element => {
+const MenuItems = ({ pages, show, colorInvert }: Props): JSX.Element => {
   const theme = useTheme();
   const { t } = useTranslation('common');
 
@@ -39,7 +40,13 @@ const MenuItems = ({ pages, show }: Props): JSX.Element => {
                     md: 30,
                   },
                   justifyContent: 'flex-end',
-                  color: activeLink === p.href ? theme.palette.primary.main : theme.palette.text.primary,
+                  color:
+                    activeLink === p.href
+                      ? theme.palette.primary.main
+                      : colorInvert
+                      ? theme.palette.background.paper
+                      : theme.palette.text.primary,
+                  mixBlendMode: 'difference',
 
                   fontWeight: activeLink === p.href ? 600 : 400,
                 }}

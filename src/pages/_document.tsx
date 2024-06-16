@@ -3,6 +3,7 @@ import React from 'react';
 import Document, { Html, Head, Main, NextScript } from 'next/document';
 import createCache from '@emotion/cache';
 import createEmotionServer from '@emotion/server/create-instance';
+import { useTranslation } from 'next-i18next';
 
 export default class MyDocument extends Document {
   render(): JSX.Element {
@@ -10,7 +11,7 @@ export default class MyDocument extends Document {
       <Html lang={this.props.locale}>
         <Head>
           <meta charSet="utf-8" />
-          <link rel="shortcut icon" href="https://assets.maccarianagency.com/favicons/thefront/favicon.ico" />
+          <link rel="shortcut icon" href="/public/favicon.ico" />
           <meta name="theme-color" content="#ffffff" />
           <meta name="description" content="A modern design system for your new landing and web pages." />
           <meta name="robots" content="max-snippet:-1, max-image-preview:large, max-video-preview:-1" />

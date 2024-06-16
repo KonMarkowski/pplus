@@ -5,18 +5,8 @@ import NoSsr from '@mui/material/NoSsr';
 
 import Main from 'layouts/Main';
 import Container from 'components/Container';
-import {
-  Welcome,
-  Goby,
-  Process,
-  Nike2,
-  Larq,
-  Nike,
-  Trek,
-  Curology,
-  Reviews,
-  Contact,
-} from './components';
+import { Welcome, Goby, Process, Nike2, Larq, Nike, Trek, Curology, Reviews, Contact } from './components';
+import { Fluid } from '@/src/layouts';
 
 const Agency = (): JSX.Element => {
   useEffect(() => {
@@ -65,7 +55,7 @@ const Agency = (): JSX.Element => {
     } as const);
 
   return (
-    <Main>
+    <Fluid>
       <Box minHeight={'100vh'} display={'flex'} alignItems={'center'}>
         <Container>
           <Box display={'flex'} flexDirection={'column'} alignItems={'center'}>
@@ -103,12 +93,7 @@ const Agency = (): JSX.Element => {
         alignItems={'center'}
         id="agency__portfolio-item--js-scroll"
       >
-        <Box
-          className={'jarallax-img'}
-          sx={styles(
-            'https://assets.maccarianagency.com/backgrounds/img48.jpg',
-          )}
-        />
+        <Box className={'jarallax-img'} sx={styles('https://assets.maccarianagency.com/backgrounds/img48.jpg')} />
         <Container>
           <Goby />
         </Container>
@@ -122,22 +107,12 @@ const Agency = (): JSX.Element => {
         display={'flex'}
         alignItems={'center'}
       >
-        <Box
-          className={'jarallax-img'}
-          sx={styles(
-            'https://assets.maccarianagency.com/backgrounds/img44.jpg',
-          )}
-        />
+        <Box className={'jarallax-img'} sx={styles('https://assets.maccarianagency.com/backgrounds/img44.jpg')} />
         <Container>
           <Larq />
         </Container>
       </Box>
-      <Box
-        minHeight={'100vh'}
-        display={'flex'}
-        alignItems={'center'}
-        bgcolor={'alternate.main'}
-      >
+      <Box minHeight={'100vh'} display={'flex'} alignItems={'center'} bgcolor={'alternate.main'}>
         <Container>
           <Process />
         </Container>
@@ -152,12 +127,7 @@ const Agency = (): JSX.Element => {
         alignItems={'center'}
         id="agency__portfolio-item--js-scroll"
       >
-        <Box
-          className={'jarallax-img'}
-          sx={styles(
-            'https://assets.maccarianagency.com/backgrounds/img45.jpg',
-          )}
-        />
+        <Box className={'jarallax-img'} sx={styles('https://assets.maccarianagency.com/backgrounds/img45.jpg')} />
         <Container>
           <Nike />
         </Container>
@@ -172,22 +142,12 @@ const Agency = (): JSX.Element => {
         alignItems={'center'}
         id="agency__portfolio-item--js-scroll"
       >
-        <Box
-          className={'jarallax-img'}
-          sx={styles(
-            'https://assets.maccarianagency.com/backgrounds/img43.jpg',
-          )}
-        />
+        <Box className={'jarallax-img'} sx={styles('https://assets.maccarianagency.com/backgrounds/img43.jpg')} />
         <Container>
           <Trek />
         </Container>
       </Box>
-      <Box
-        minHeight={'100vh'}
-        display={'flex'}
-        alignItems={'center'}
-        bgcolor={'alternate.main'}
-      >
+      <Box minHeight={'100vh'} display={'flex'} alignItems={'center'} bgcolor={'alternate.main'}>
         <Container>
           <Reviews />
         </Container>
@@ -202,12 +162,7 @@ const Agency = (): JSX.Element => {
         alignItems={'center'}
         id="agency__portfolio-item--js-scroll"
       >
-        <Box
-          className={'jarallax-img'}
-          sx={styles(
-            'https://assets.maccarianagency.com/backgrounds/img47.jpg',
-          )}
-        />
+        <Box className={'jarallax-img'} sx={styles('https://assets.maccarianagency.com/backgrounds/img47.jpg')} />
         <Container>
           <Curology />
         </Container>
@@ -222,27 +177,17 @@ const Agency = (): JSX.Element => {
         alignItems={'center'}
         id="agency__portfolio-item--js-scroll"
       >
-        <Box
-          className={'jarallax-img'}
-          sx={styles(
-            'https://assets.maccarianagency.com/backgrounds/img46.jpg',
-          )}
-        />
+        <Box className={'jarallax-img'} sx={styles('https://assets.maccarianagency.com/backgrounds/img46.jpg')} />
         <Container>
           <Nike2 />
         </Container>
       </Box>
-      <Box
-        minHeight={'100vh'}
-        display={'flex'}
-        alignItems={'center'}
-        bgcolor={'alternate.main'}
-      >
+      <Box minHeight={'100vh'} display={'flex'} alignItems={'center'} bgcolor={'alternate.main'}>
         <Container>
           <Contact />
         </Container>
       </Box>
-    </Main>
+    </Fluid>
   );
 };
 

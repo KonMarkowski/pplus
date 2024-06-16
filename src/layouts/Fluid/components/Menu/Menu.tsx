@@ -5,9 +5,11 @@ import { useTheme } from '@mui/material/styles';
 import pages from 'layouts/navigation-pplus';
 import { Squash as Hamburger } from 'hamburger-react';
 
-interface Props {}
+interface Props {
+  colorInvert?: boolean;
+}
 
-const Menu = (): JSX.Element => {
+const Menu = ({ colorInvert }: Props): JSX.Element => {
   const theme = useTheme();
   const [openSidebar, setOpenSidebar] = useState(false);
   const [menuShown, setMenuShown] = useState(false);
@@ -28,7 +30,7 @@ const Menu = (): JSX.Element => {
           justifyContent: 'flex-end',
         }}
       >
-        <MenuItems pages={pages} show={openSidebar} />
+        <MenuItems pages={pages} show={openSidebar} colorInvert={colorInvert} />
       </Box>
     </Box>
   );

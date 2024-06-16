@@ -32,14 +32,6 @@ const Hero = (): JSX.Element => {
       <Box
         sx={{
           minHeight: '100vh',
-          marginTop: {
-            xs: `-${NAVBAR_HEIGHT_MOBILE}px`,
-            md: `-${NAVBAR_HEIGHT_DESKTOP}px`,
-          },
-          paddingTop: {
-            xs: `${NAVBAR_HEIGHT_MOBILE}px`,
-            md: `${NAVBAR_HEIGHT_DESKTOP}px`,
-          },
         }}
         paddingY={{ xs: 0, sm: '4rem', md: '8rem' }}
         alignContent={'center'}

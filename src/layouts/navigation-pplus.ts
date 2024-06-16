@@ -6,17 +6,17 @@ const pages = [
   },
   {
     title: 'About us',
-    href: '/about',
+    href: '/about/',
     translationKey: 'menu.about',
   },
   {
     title: 'Projects',
-    href: '/projects',
+    href: '/projects/',
     translationKey: 'menu.projects',
   },
   {
     title: 'Contact',
-    href: '/contact',
+    href: '/contact/',
     translationKey: 'menu.contact',
   },
 ];

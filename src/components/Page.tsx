@@ -4,6 +4,9 @@ import Paper from '@mui/material/Paper';
 import CssBaseline from '@mui/material/CssBaseline';
 import getTheme from 'theme';
 import AOS from 'aos';
+import Head from 'next/head';
+import { useRouter } from 'next/router';
+import { useTranslation } from 'next-i18next';
 
 export const useDarkMode = (): [string, () => void, boolean] => {
   const [themeMode, setTheme] = useState('light');
@@ -63,11 +66,25 @@ export default function Page({ children }: Props): JSX.Element {
     AOS.refresh();
   }, [mountedComponent, themeMode]);
 
+  const { asPath, locale } = useRouter();
+  const { t } = useTranslation('header');
   return (
-    <ThemeProvider theme={getTheme(themeMode, themeToggler)}>
-      {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
-      <CssBaseline />
-      <Paper elevation={0}>{children}</Paper>
-    </ThemeProvider>
+    <>
+      <Head>
+        <title>{t('header.title')}</title>
+        <meta key="title" property="og:title" content={t('header.title')} />
+        <meta key={'main_description'} name="description" content={t('header.description')} />
+        <meta key={'description'} property="og:description" content={t('header.description')} />
+        <meta key={'keywords'} property="og:keywords" content={t('header.keywords')} />
+        <meta property="og:locale" content={t('header.contentLang')} />
+        <meta property="og:type" content="website" />
+        <meta key={'image'} property="og:image" content="/assets/logo.png" />
+        <meta key={'url`'} property="og:url" content={`${process.env.NEXT_PUBLIC_APP_URL}/${locale}${asPath}`} />
+      </Head>
+      <ThemeProvider theme={getTheme(themeMode, themeToggler)}>
+        <CssBaseline />
+        <Paper elevation={0}>{children}</Paper>
+      </ThemeProvider>
+    </>
   );
 }

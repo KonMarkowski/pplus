@@ -25,15 +25,8 @@ const validationSchema = yup.object({
     .min(2, 'Please enter a valid name')
     .max(50, 'Please enter a valid name')
     .required('Please specify your last name'),
-  email: yup
-    .string()
-    .trim()
-    .email('Please enter a valid email address')
-    .required('Email is required.'),
-  message: yup
-    .string()
-    .trim()
-    .required('Please specify your message'),
+  email: yup.string().trim().email('Please enter a valid email address').required('Email is required.'),
+  message: yup.string().trim().required('Please specify your message'),
 });
 
 const Contact = (): JSX.Element => {
@@ -64,9 +57,8 @@ const Contact = (): JSX.Element => {
             Contact us
           </Typography>
           <Typography color="text.secondary">
-            Rather than worrying about switching offices every couple years, you
-            can instead stay in the same location and grow-up from your shared
-            coworking space to an office that takes up an entire floor.
+            Rather than worrying about switching offices every couple years, you can instead stay in the same location
+            and grow-up from your shared coworking space to an office that takes up an entire floor.
           </Typography>
         </Box>
         <Box>
@@ -83,13 +75,9 @@ const Contact = (): JSX.Element => {
                   fullWidth
                   value={formik.values.firstName}
                   onChange={formik.handleChange}
-                  error={
-                    formik.touched.firstName && Boolean(formik.errors.firstName)
-                  }
+                  error={formik.touched.firstName && Boolean(formik.errors.firstName)}
                   // @ts-ignore
-                  helperText={
-                    formik.touched.firstName && formik.errors.firstName
-                  }
+                  helperText={formik.touched.firstName && formik.errors.firstName}
                 />
               </Grid>
               <Grid item xs={12} sm={6}>
@@ -103,9 +91,7 @@ const Contact = (): JSX.Element => {
                   fullWidth
                   value={formik.values.lastName}
                   onChange={formik.handleChange}
-                  error={
-                    formik.touched.lastName && Boolean(formik.errors.lastName)
-                  }
+                  error={formik.touched.lastName && Boolean(formik.errors.lastName)}
                   // @ts-ignore
                   helperText={formik.touched.lastName && formik.errors.lastName}
                 />
@@ -139,9 +125,7 @@ const Contact = (): JSX.Element => {
                   fullWidth
                   value={formik.values.message}
                   onChange={formik.handleChange}
-                  error={
-                    formik.touched.message && Boolean(formik.errors.message)
-                  }
+                  error={formik.touched.message && Boolean(formik.errors.message)}
                   // @ts-ignore
                   helperText={formik.touched.message && formik.errors.message}
                 />
@@ -158,9 +142,7 @@ const Contact = (): JSX.Element => {
                 </Button>
               </Grid>
               <Grid item xs={12}>
-                <Typography color="text.secondary">
-                  We'll get back to you in 1-2 business days.
-                </Typography>
+                <Typography color="text.secondary">We'll get back to you in 1-2 business days.</Typography>
               </Grid>
               <Grid item xs={12}>
                 <Divider />
@@ -169,30 +151,15 @@ const Contact = (): JSX.Element => {
                 <Box>
                   <Typography component="p" variant="body2" align="left">
                     By clicking on "submit" you agree to our{' '}
-                    <Box
-                      component="a"
-                      href=""
-                      color={theme.palette.text.primary}
-                      fontWeight={'700'}
-                    >
+                    <Box component="a" href="" color={theme.palette.text.primary} fontWeight={'700'}>
                       Privacy Policy
                     </Box>
                     ,{' '}
-                    <Box
-                      component="a"
-                      href=""
-                      color={theme.palette.text.primary}
-                      fontWeight={'700'}
-                    >
+                    <Box component="a" href="" color={theme.palette.text.primary} fontWeight={'700'}>
                       Data Policy
                     </Box>{' '}
                     and{' '}
-                    <Box
-                      component="a"
-                      href=""
-                      color={theme.palette.text.primary}
-                      fontWeight={'700'}
-                    >
+                    <Box component="a" href="" color={theme.palette.text.primary} fontWeight={'700'}>
                       Cookie Policy
                     </Box>
                     .
@@ -216,13 +183,10 @@ const Contact = (): JSX.Element => {
         marginHeight={0}
         marginWidth={0}
         scrolling="no"
-        src="https://maps.google.com/maps?width=100%&height=100%&hl=en&q=Milan&ie=UTF8&t=&z=14&iwloc=B&output=embed"
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2435.614293976996!2d16.938449398203375!3d52.37741349989089!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47045afba6548077%3A0xe9731470011d3777!2sRomana%20Maya%201%2C%2061-371%20Pozna%C5%84!5e0!3m2!1sen!2spl!4v1718545379672!5m2!1sen!2spl"
         style={{
           minHeight: 300,
-          filter:
-            theme.palette.mode === 'dark'
-              ? 'grayscale(0.5) opacity(0.7)'
-              : 'none',
+          filter: theme.palette.mode === 'dark' ? 'grayscale(0.5) opacity(0.7)' : 'none',
         }}
       />
     );
@@ -237,17 +201,8 @@ const Contact = (): JSX.Element => {
       }}
     >
       <Container paddingX={0} paddingY={0} maxWidth={{ sm: 1, md: 1236 }}>
-        <Box
-          display={'flex'}
-          flexDirection={{ xs: 'column', md: 'row' }}
-          position={'relative'}
-        >
-          <Box
-            display={'flex'}
-            alignItems={'center'}
-            width={1}
-            order={{ xs: 2, md: 1 }}
-          >
+        <Box display={'flex'} flexDirection={{ xs: 'column', md: 'row' }} position={'relative'}>
+          <Box display={'flex'} alignItems={'center'} width={1} order={{ xs: 2, md: 1 }}>
             <Container>
               <LeftSide />
             </Container>

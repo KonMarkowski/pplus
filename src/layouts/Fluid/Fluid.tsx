@@ -17,11 +17,17 @@ import Menu from 'layouts/Fluid/components/Menu';
 
 interface Props {
   children: React.ReactNode;
+  transparentHeader?: boolean;
   colorInvert?: boolean;
   bgcolor?: string;
 }
 
-const Fluid = ({ children, colorInvert = false, bgcolor = 'alternate.main' }: Props): JSX.Element => {
+const Fluid = ({
+  children,
+  colorInvert = false,
+  bgcolor = 'alternate.main',
+  transparentHeader = false,
+}: Props): JSX.Element => {
   const theme = useTheme();
   const { mode } = theme.palette;
 
@@ -57,21 +63,22 @@ const Fluid = ({ children, colorInvert = false, bgcolor = 'alternate.main' }: Pr
         position={'relative'}
         sx={{
           top: 0,
-          backgroundColor: bgcolor,
+          left: 0,
+          right: 0,
+          backgroundColor: transparentHeader ? 'transparent' : bgcolor,
           zIndex: 2,
         }}
         elevation={0}
       >
-        <Box paddingY={{ xs: 2, md: 5 }} paddingX={{ xs: 2, md: 10 }}>
+        <Box position={'absolute'} width={'100%'} paddingY={{ xs: 2, md: 5 }} paddingX={{ xs: 2, md: 10 }}>
           <Box display={'flex'} justifyContent={'space-between'} alignItems={'center'} width={1}>
             <Box display={'flex'} component="a" href="/" title="theFront" width={{ xs: 200, md: 300 }}>
               <Box component={'img'} src={'/assets/logo.png'} height={1} width={1} />
             </Box>
-            <Menu />
+            <Menu colorInvert={colorInvert} />
           </Box>
         </Box>
       </AppBar>
-      <Sidebar onClose={handleSidebarClose} open={openSidebar} variant="temporary" pages={pages} />
       <main>
         {children}
         <Divider />
