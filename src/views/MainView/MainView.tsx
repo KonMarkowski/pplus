@@ -5,8 +5,7 @@ import Fluid from 'layouts/Fluid';
 import { Hero } from './components';
 import { useTranslation } from 'next-i18next';
 
-interface Props {}
-const MainView = ({}: Props): JSX.Element => {
+const MainView = (): JSX.Element => {
   const theme = useTheme();
   const { t } = useTranslation('home');
   console.log('km hero.heading.firstPart', t('hero.heading.firstPart'));
