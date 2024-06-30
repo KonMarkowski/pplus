@@ -50,7 +50,7 @@ const Hero = (): JSX.Element => {
                 >
                   {t('hero.heading.firstPart')}
                   <br />
-                  {t('hero.heading.secondPart')}
+                  {t('hero.heading.secondPart')}{' '}
                   <Typography
                     color={'primary'}
                     component={'span'}

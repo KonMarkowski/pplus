@@ -6,6 +6,7 @@ import Main from 'layouts/Main';
 import Container from 'components/Container';
 import { Contact, Gallery, Hero, Partners, Story, Team, WhoWeAre, Application } from './components';
 import { Fluid } from '@/src/layouts';
+import Stats from '@/src/views/About/components/Stats';
 
 const About = (): JSX.Element => {
   return (
@@ -14,27 +15,33 @@ const About = (): JSX.Element => {
       <Container>
         <Story />
       </Container>
-      <Container paddingTop={'0 !important'}>
-        <WhoWeAre />
-      </Container>
-      <Container maxWidth={800} paddingY={'0 !important'}>
-        <Divider />
-      </Container>
-      <Container>
-        <Team />
-      </Container>
       <Box bgcolor={'alternate.main'}>
         <Container>
-          <Partners />
+          <Stats />
         </Container>
       </Box>
-      <Contact />
       <Container>
         <Gallery />
       </Container>
-      <Container maxWidth={800} paddingTop={'0 !important'}>
-        <Application />
+      <Container paddingTop={'0 !important'}>
+        <WhoWeAre />
       </Container>
+      {/*<Container maxWidth={800} paddingY={'0 !important'}>*/}
+      <Divider />
+      {/*</Container>*/}
+      {/*<Container>*/}
+      {/*  <Team />*/}
+      {/*</Container>*/}
+      {/*<Box bgcolor={'alternate.main'}>*/}
+      {/*  <Container>*/}
+      {/*    <Partners />*/}
+      {/*  </Container>*/}
+      {/*</Box>*/}
+      <Contact />
+
+      {/*<Container maxWidth={800} paddingTop={'0 !important'}>*/}
+      {/*  <Application />*/}
+      {/*</Container>*/}
     </Fluid>
   );
 };

@@ -1,1 +1,1 @@
-export const alwaysLoadedNs = ['common', 'header', 'footer'];
+export const alwaysLoadedNs = ['common', 'header', 'footer', 'contact'];

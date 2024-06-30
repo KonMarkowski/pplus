@@ -34,23 +34,23 @@ const Partners = (): JSX.Element => {
         <Grid item xs={12} md={6}>
           <Box>
             <Box display="flex" flexWrap="wrap" justifyContent={'flex-start'}>
-              {mock.map((item, i) => (
-                <Box maxWidth={90} marginTop={2} marginRight={4} key={i}>
-                  <Box
-                    component="img"
-                    height={1}
-                    width={1}
-                    src={item}
-                    alt="..."
-                    sx={{
-                      filter:
-                        theme.palette.mode === 'dark'
-                          ? 'brightness(0) invert(0.7)'
-                          : 'none',
-                    }}
-                  />
-                </Box>
-              ))}
+              {/*{mock.map((item, i) => (*/}
+              {/*  <Box maxWidth={90} marginTop={2} marginRight={4} key={i}>*/}
+              {/*    <Box*/}
+              {/*      component="img"*/}
+              {/*      height={1}*/}
+              {/*      width={1}*/}
+              {/*      src={item}*/}
+              {/*      alt="..."*/}
+              {/*      sx={{*/}
+              {/*        filter:*/}
+              {/*          theme.palette.mode === 'dark'*/}
+              {/*            ? 'brightness(0) invert(0.7)'*/}
+              {/*            : 'none',*/}
+              {/*      }}*/}
+              {/*    />*/}
+              {/*  </Box>*/}
+              {/*))}*/}
             </Box>
           </Box>
         </Grid>

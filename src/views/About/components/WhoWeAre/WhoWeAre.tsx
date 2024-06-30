@@ -15,43 +15,32 @@ const WhoWeAre = (): JSX.Element => {
   return (
     <Box>
       <Grid container spacing={4} direction={isMd ? 'row' : 'column'}>
-        <Grid
-          item
-          container
-          alignItems={'center'}
-          justifyContent="center"
-          xs={12}
-          md={6}
-        >
+        <Grid item container alignItems={'center'} justifyContent="center" xs={12} md={12}>
           <Box>
             <Typography variant={'h4'} gutterBottom sx={{ fontWeight: 700 }}>
-              Who are we?
+              Kim jesteśmy?
             </Typography>
             <Typography component={'p'} color={'text.secondary'}>
-              Our sign up is simple. We only require your basic company
-              information and what type of data storage you want. Our sign up is
-              dead simple. We only require your basic company information and
-              what type of data storage you want.
-            </Typography>
-          </Box>
-        </Grid>
-        <Grid
-          item
-          container
-          justifyContent="center"
-          alignItems="center"
-          xs={12}
-          md={6}
-        >
-          <Box>
-            <Typography variant={'h4'} gutterBottom sx={{ fontWeight: 700 }}>
-              Our process
+              Z siedzibą w Poznaniu, jesteśmy zespołem najlepszych w Europie doświadczonych specjalistów – inżynierów,
+              modelarzy, ditejlerów. Kompleksowe usługi w projektowaniu konstrukcji budowlanych świadczymy przy użyciu
+              technologii BIM. Dostarczamy pełne obliczenia i informacje potrzebne do dokładnego opisu projektu w
+              przygotowaniu do produkcji. W nieustannym dążeniu do usprawniania i upraszczania procesu projektowego i
+              wykonawczego wykorzystujemy zaawansowane programy oraz ich twórców: Tekla Structures, Tekla Tedds,
+              Autodesk Revit, Fusion. <br /> Specjalizujemy się w dokumentacji warsztatowej i wykonawczej konstrukcji
+              stalowych oraz żelbetowych prefabrykowanych i monolitycznych. <br /> <br /> Innowacyjne myślenie i
+              elastyczne działanie pokierowało nas do bliskiej współpracy z liderami przemysłu budowlanego w Polsce, UK
+              i Norwegii.
+              <br /> <br /> Zapraszamy do wspólnego doświadczania innowacyjnej, wysoko aspirującej i zaawansowanej
+              inżynierii budowlanej. Oferujemy naszym klientom atrakcyjne usługi w zakresie wszelkiego rodzaju
+              budownictwa przemysłowego, usługowego oraz mieszkaniowego. Nasza oferta obejmuje takie usługi jak:
+              <br />
+              <br />
             </Typography>
             <Typography component={'p'} color={'text.secondary'}>
-              We support bulk uploading via SQL, integrations with most data
-              storage products, or you can use our API. Simply select where
-              you'd like to transfer your data and we'll being the process of
-              migrating it instantly.
+              - projekty budowlane <br />
+              - projekty wykonawcze i dokumentacja projektowa <br />
+              - obliczenia statyczne i raportowanie <br />
+              - projekty pełnobranżowe <br />
             </Typography>
           </Box>
         </Grid>

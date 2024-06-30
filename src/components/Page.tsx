@@ -83,7 +83,9 @@ export default function Page({ children }: Props): JSX.Element {
       </Head>
       <ThemeProvider theme={getTheme(themeMode, themeToggler)}>
         <CssBaseline />
-        <Paper elevation={0}>{children}</Paper>
+        <Paper sx={{ overflowX: 'hidden' }} elevation={0}>
+          {children}
+        </Paper>
       </ThemeProvider>
     </>
   );

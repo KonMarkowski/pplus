@@ -1,9 +1,10 @@
 import React, { useEffect } from 'react';
-import { alpha } from '@mui/material/styles';
+import { alpha, useTheme } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
-
+import Image from 'next/image';
 import Container from 'components/Container';
+import useMediaQuery from '@mui/material/useMediaQuery';
 
 const Hero = (): JSX.Element => {
   useEffect(() => {
@@ -20,38 +21,50 @@ const Hero = (): JSX.Element => {
     jarallaxInit();
   });
 
+  const theme = useTheme();
+
+  const isMd = useMediaQuery(theme.breakpoints.up('md'), {
+    defaultMatches: true,
+  });
+
+  console.log('km isMd', isMd);
+
   return (
     <Box
       className={'jarallax'}
       data-jarallax
       data-speed="0.2"
       position={'relative'}
-      minHeight={{ xs: 400, sm: 500, md: 600 }}
+      minHeight={{ xs: 500, sm: 600, md: 700 }}
       display={'flex'}
       alignItems={'center'}
       marginTop={-13}
       paddingTop={13}
       id="agency__portfolio-item--js-scroll"
     >
-      <Box
-        className={'jarallax-img'}
-        sx={{
-          position: 'absolute',
-          objectFit: 'cover',
-          /* support for plugin https://github.com/bfred-it/object-fit-images */
-          fontFamily: 'object-fit: cover;',
-          top: 0,
-          left: 0,
-          width: '100%',
-          height: '100%',
-          zIndex: -1,
-          backgroundRepeat: 'no-repeat',
-          backgroundSize: 'cover',
-          backgroundPosition: 'center center',
-          backgroundImage:
-            'url(https://assets.maccarianagency.com/backgrounds/img52.jpg)',
-        }}
-      />
+      {isMd ? (
+        <Image
+          className={'jarallax-img'}
+          fill={true}
+          quality={90}
+          objectFit={'cover'}
+          priority
+          alt={''}
+          src={'/assets/team-2.jpg'} //TODO: optimize images
+          objectPosition={'50% -500px'}
+        />
+      ) : (
+        <Image
+          className={'jarallax-img'}
+          fill={true}
+          quality={90}
+          objectFit={'cover'}
+          priority
+          alt={''}
+          src={'/assets/team-2.jpg'} //TODO: optimize images
+          objectPosition={'50% -200px'}
+        />
+      )}
       <Box
         sx={{
           position: 'absolute',
@@ -76,7 +89,7 @@ const Hero = (): JSX.Element => {
               textTransform: 'uppercase',
             }}
           >
-            About us
+            O nas
           </Typography>
           <Typography
             variant="h6"
@@ -86,8 +99,7 @@ const Hero = (): JSX.Element => {
               color: 'common.white',
             }}
           >
-            We are founded by a leading academic and researcher in the field of
-            Industrial Systems Engineering.
+            Zespół inżynierów z doświadczeniem w międzynarodowych grupach projektowych
           </Typography>
         </Box>
       </Container>

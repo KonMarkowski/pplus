@@ -5,6 +5,7 @@ import Box from '@mui/material/Box';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import Typography from '@mui/material/Typography';
 import Grid from '@mui/material/Grid';
+import Image from 'next/image';
 
 const Story = (): JSX.Element => {
   const theme = useTheme();
@@ -18,46 +19,21 @@ const Story = (): JSX.Element => {
         <Grid item container alignItems={'center'} xs={12} md={6}>
           <Box>
             <Typography variant={'h4'} gutterBottom sx={{ fontWeight: 700 }}>
-              Our story
+              Projekt+
             </Typography>
             <Typography component={'p'}>
-              Our focus is always on finding the best people to work with. Our
-              bar is high, but you look ready to take on the challenge.
+              to zgrany zespół młodych a doświadczonych specjalistów.
               <br />
-              We design and implement creative solutions to everyday business
-              problems.
+              Naszą specjalizacją jest projektowanie i produkcja obiektów inżynierskich najwyższej jakości.
               <br />
-              <br />
-              We are a team of creative consultants who help bridge the digital
-              gap between companies and their clients with websites that not
-              only serve as marketing platforms but also provide solutions to
-              online business problems and digital marketing strategies that
-              connect you with the ideal client and help create a loyal
-              customer.
+              Dbamy o szczegóły i myślimy globalnie, dlatego projektujemy odważnie.
             </Typography>
           </Box>
         </Grid>
-        <Grid
-          item
-          container
-          justifyContent="center"
-          alignItems="center"
-          xs={12}
-          md={6}
-        >
-          <Box maxWidth={500} width={1}>
-            <Box
-              component={'img'}
-              src={
-                'https://assets.maccarianagency.com/svg/illustrations/drawkit-illustration1.svg'
-              }
-              width={1}
-              height={1}
-              sx={{
-                filter:
-                  theme.palette.mode === 'dark' ? 'brightness(0.8)' : 'none',
-              }}
-            />
+        <Grid item container justifyContent="center" alignItems="center" xs={12} md={6}>
+          <Box position={'relative'} maxWidth={900} width={'100vh'} maxHeight={400} height={'100vh'}>
+            <Image quality={90} objectFit={'cover'} fill={true} priority alt={''} src={'/assets/team-1.jpg'} />
+            {/*TODO: optimize images*/}
           </Box>
         </Grid>
       </Grid>
