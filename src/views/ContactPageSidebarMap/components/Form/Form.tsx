@@ -27,6 +27,7 @@ const Contact = (): JSX.Element => {
             .string()
             .email(t('form.validation.email.message1'))
             .when('phone', {
+              // @ts-ignore
               is: (phone) => !phone || phone.length === 0,
               then: yup.string().email().required(t('form.validation.message')),
               otherwise: yup.string(),
@@ -36,6 +37,7 @@ const Contact = (): JSX.Element => {
             .matches(phoneRegex, t('form.validation.phone.message1'))
             .min(9, t('form.validation.phone.message2'))
             .when('email', {
+              // @ts-ignore
               is: (email) => !email || email.length === 0,
               then: yup.string().required(t('form.validation.message')),
               otherwise: yup.string(),

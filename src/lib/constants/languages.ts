@@ -1,5 +1,3 @@
-import i18nConfig from '@/i18nConfig';
-
 type LanguageOption = {
   label: string;
   prefix: string;

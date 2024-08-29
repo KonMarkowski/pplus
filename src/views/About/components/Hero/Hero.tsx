@@ -27,8 +27,6 @@ const Hero = (): JSX.Element => {
     defaultMatches: true,
   });
 
-  console.log('km isMd', isMd);
-
   return (
     <Box
       className={'jarallax'}

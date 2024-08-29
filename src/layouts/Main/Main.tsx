@@ -7,11 +7,8 @@ import AppBar from '@mui/material/AppBar';
 import useScrollTrigger from '@mui/material/useScrollTrigger';
 
 import Container from 'components/Container';
-import TopNav from 'components/TopNav';
 
-import { Topbar, Sidebar, Footer } from './components';
-
-import pages from '../navigation';
+import { Footer } from './components';
 
 interface Props {
   children: React.ReactNode;
@@ -19,11 +16,7 @@ interface Props {
   bgcolor?: string;
 }
 
-const Main = ({
-  children,
-  colorInvert = false,
-  bgcolor = 'transparent',
-}: Props): JSX.Element => {
+const Main = ({ children, colorInvert = false, bgcolor = 'transparent' }: Props): JSX.Element => {
   const theme = useTheme();
   const isMd = useMediaQuery(theme.breakpoints.up('md'), {
     defaultMatches: true,
@@ -55,21 +48,7 @@ const Main = ({
           backgroundColor: trigger ? theme.palette.background.paper : bgcolor,
         }}
         elevation={trigger ? 1 : 0}
-      >
-        <Container paddingY={1}>
-          <Topbar
-            onSidebarOpen={handleSidebarOpen}
-            pages={pages}
-            colorInvert={trigger ? false : colorInvert}
-          />
-        </Container>
-      </AppBar>
-      <Sidebar
-        onClose={handleSidebarClose}
-        open={open}
-        variant="temporary"
-        pages={pages}
-      />
+      ></AppBar>
       <main>
         {children}
         <Divider />

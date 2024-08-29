@@ -12,7 +12,6 @@ import NoSsr from '@mui/material/NoSsr';
 import Container from 'components/Container';
 
 import { Footer, Sidebar } from './components';
-import pages from 'layouts/navigation-pplus';
 import Menu from 'layouts/Fluid/components/Menu';
 
 interface Props {
